@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: empresa
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_empresa
+                  type: varchar(36)
+                  constraints:
+                    primaryKeyName: pk_empresa
+                    primaryKey: true
+              - column:
+                  name: nombre
+                  type: varchar(50)
+              - column:
+                  name: representante_legal
+                  type: varchar(50)
+              - column:
+                  name: fecha_fundacion
+                  type: datetime
+              - column:
+                  name: telefono
+                  type: varchar(15)
+              - column:
+                  name: nit
+                  type: varchar(15)
+              - column:
+                  name: correo
+                  type: varchar(50)
+              - column:
+                  name: vision
+                  type: varchar(100)
+              - column:
+                  name: mision
+                  type: varchar(100)
+

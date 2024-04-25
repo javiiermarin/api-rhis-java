@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: division
+            baseColumnNames: id_encargado
+            constraintName: fk_division_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado

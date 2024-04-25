@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 7
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: nivel_academico
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_nivel_academico
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_nivel_academico
+              - column:
+                  name: nivel_academico
+                  type: varchar(50)
+              - column:
+                  name: descripcion
+                  type: varchar(100)
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: nivel_academico
+            baseColumnNames: id_empleado
+            constraintName: fk_nivel_academico_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true

@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: planilla_hora_extra
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_planilla_hora_extra
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_planilla_hora_extra
+              - column:
+                  name: cantidad_horas
+                  type: int
+              - column:
+                  name: calculo
+                  type: double
+              - column:
+                  name: id_pago_planilla
+                  type: varchar(36)
+              - column:
+                  name: id_hora_extra
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: planilla_hora_extra
+            baseColumnNames: id_planilla_hora_extra
+            constraintName: fk_planilla_hora_extra_hora_extra
+            referencedTableName: hora_extra
+            referencedColumnNames: id_hora_extra
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: planilla_hora_extra
+            baseColumnNames: id_pago_planilla
+            constraintName: fk_planilla_hora_extra_planilla
+            referencedTableName: pago_planilla
+            referencedColumnNames: id_pago_planilla
+            validate: true

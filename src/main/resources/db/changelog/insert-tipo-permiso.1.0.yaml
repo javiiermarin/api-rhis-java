@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - insert:
+            tableName: tipo_permiso
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_tipo_permiso
+                  value: abcd123
+              - column:
+                  name: nombre
+                  value: Nacimiento de un hijo
+              - column:
+                  name: descripcion
+                  value: Permiso especial para los colaboradores que vayan a ser papas
+              - column:
+                  name: is_enabled
+                  value: true

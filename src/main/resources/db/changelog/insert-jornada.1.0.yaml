@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - insert:
+            tableName: jornada
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_jornada
+                  value: 12345qwert
+              - column:
+                  name: jornada
+                  value: ordinaria
+              - column:
+                  name: valor
+                  value: 10.22

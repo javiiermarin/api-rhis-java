@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: division
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_division
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_division
+              - column:
+                  name: nombre
+                  type: varchar(50)
+              - column:
+                  name: is_enabled
+                  type: boolean
+              - column:
+                  name: id_encargado
+                  type: varchar(36)
+

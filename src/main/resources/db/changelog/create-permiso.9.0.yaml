@@ -1,0 +1,81 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 9
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: permiso
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_permiso
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_permiso
+              - column:
+                  name: descripcion
+                  type: varchar(200)
+              - column:
+                  name: fecha_solicitud
+                  type: datetime
+              - column:
+                  name: fecha_inicio
+                  type: datetime
+              - column:
+                  name: fecha_final
+                  type: datetime
+              - column:
+                  name: create_at
+                  type: datetime
+              - column:
+                  name: update_at
+                  type: datetime
+              - column:
+                  name: delete_at
+                  type: datetime
+              - column:
+                  name: create_by
+                  type: varchar(36)
+              - column:
+                  name: update_by
+                  type: varchar(36)
+              - column:
+                  name: delete_by
+                  type: varchar(36)
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+              - column:
+                  name: id_tipo_permiso
+                  type: varchar(36)
+              - column:
+                  name: id_permiso_tracking
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: permiso
+            baseColumnNames: id_empleado
+            constraintName: fk_permiso_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: permiso
+            baseColumnNames: id_permiso_tracking
+            constraintName: fk_permiso_tracking
+            referencedTableName: permiso_tracking
+            referencedColumnNames: id_permiso_tracking
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: permiso
+            baseColumnNames: id_permiso
+            constraintName: fk_permiso_tipo
+            referencedTableName: tipo_permiso
+            referencedColumnNames: id_tipo_permiso
+            validate: true
+
+
+
+

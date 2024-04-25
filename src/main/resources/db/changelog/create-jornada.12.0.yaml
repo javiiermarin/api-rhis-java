@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 12
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: jornada
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_jornada
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_jornada
+              - column:
+                  name: jornada
+                  type: varchar(30)
+              - column:
+                  name: hora_inicio
+                  type: datetime
+              - column:
+                  name: hora_fin
+                  type: datetime
+              - column:
+                  name: valor
+                  type: numeric(10,2)

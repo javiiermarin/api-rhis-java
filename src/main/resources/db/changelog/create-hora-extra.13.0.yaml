@@ -1,0 +1,46 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 13
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: hora_extra
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_hora_extra
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_hora_extra
+              - column:
+                  name: hora_inicio
+                  type: datetime
+              - column:
+                  name: hora_final
+                  type: datetime
+              - column:
+                  name: fecha
+                  type: datetime
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+              - column:
+                  name: id_jornada
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: hora_extra
+            baseColumnNames: id_empleado
+            constraintName: fk_hora_extra_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: hora_extra
+            baseColumnNames: id_jornada
+            constraintName: fk_hora_extra_jornada
+            referencedTableName: jornada
+            referencedColumnNames: id_jornada
+            validate: true

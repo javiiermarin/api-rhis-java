@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: 14
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: pago_planilla
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_pago_planilla
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_pago_planilla
+              - column:
+                  name: salario
+                  type: numeric(10,2)
+              - column:
+                  name: sueldo_base
+                  type: numeric(10,2)
+              - column:
+                  name: bonificacion_ley
+                  type: numeric(10,2)
+              - column:
+                  name: salario_neto
+                  type: numeric(10,2)
+              - column:
+                  name: fecha_inicio
+                  type: datetime
+              - column:
+                  name: fecha_final
+                  type: datetime
+              - column:
+                  name: create_at
+                  type: datetime
+              - column:
+                  name: update_at
+                  type: datetime
+              - column:
+                  name: delete_at
+                  type: datetime
+              - column:
+                  name: create_by
+                  type: varchar(36)
+              - column:
+                  name: update_by
+                  type: varchar(36)
+              - column:
+                  name: delete_by
+                  type: varchar(36)
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+              - column:
+                  name: id_planilla_impuesto
+                  type: varchar(36)
+              - column:
+                  name: id_planilla_hora_extra
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: pago_planilla
+            baseColumnNames: id_empleado
+            constraintName: fk_pago_planilla_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true
+
+

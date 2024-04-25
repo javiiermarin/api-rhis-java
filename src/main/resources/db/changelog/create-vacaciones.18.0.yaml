@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 18
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: vacaciones
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_vacaciones
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_vacaciones
+              - column:
+                  name: fecha_inicio
+                  type: datetime
+              - column:
+                  name: fecha_final
+                  type: datetime
+              - column:
+                  name: fecha_solicitud
+                  type: datetime
+              - column:
+                  name: dias_disponibles
+                  type: datetime
+              - column:
+                  name: descripcion
+                  type: varchar(100)
+              - column:
+                  name: estado_encargado_division
+                  type: boolean
+              - column:
+                  name: estado_encargado_rrhh
+                  type: boolean
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+              - column:
+                  name: id_encargado_division
+                  type: varchar(36)
+              - column:
+                  name: id_encargado_rrhh
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: vacaciones
+            baseColumnNames: id_empleado
+            constraintName: fk_vacaciones_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true

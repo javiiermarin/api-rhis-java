@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: puesto
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_puesto
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_puesto
+              - column:
+                  name: nombre
+                  type: varchar(50)
+              - column:
+                  name: salario_maximo
+                  type: number(10,2)
+              - column:
+                  name: salario_minimo
+                  type: number(10,2)
+              - column:
+                  name: is_enabled
+                  type: boolean
+              - column:
+                  name: id_division
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: puesto
+            baseColumnNames: id_division
+            constraintName: fk_puesto_division
+            referencedTableName: division
+            referencedColumnNames: id_division
+            validate: true

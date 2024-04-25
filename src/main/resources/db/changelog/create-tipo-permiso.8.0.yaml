@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 8
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: tipo_permiso
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_tipo_permiso
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_tipo_permiso
+              - column:
+                  name: nombre
+                  type: varchar(50)
+              - column:
+                  name: descripcion
+                  type: varchar(200)
+              - column:
+                  name: is_enabled
+                  type: boolean

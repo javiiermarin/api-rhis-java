@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 17
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: suspension
+            schemaName: rhis_data
+
+            columns:
+              - column:
+                  name: id_suspension
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_suspension
+              - column:
+                  name: motivo
+                  type: varchar(100)
+              - column:
+                  name: valor
+                  type: numeric(10,2)
+              - column:
+                  name: fecha_registro
+                  type: datetime
+              - column:
+                  name: fecha_inicio
+                  type: datetime
+              - column:
+                  name: fecha_final
+                  type: datetime
+              - column:
+                  name: descripcion
+                  type: varchar(100)
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: suspension
+            baseColumnNames: id_empleado
+            constraintName: fk_suspension_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true
+

@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 10
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: permiso_tracking
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_permiso_tracking
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_permiso_tracking
+              - column:
+                  name: estado
+                  type: varchar(50)
+              - column:
+                  name: id_permiso
+                  type: varchar(36)
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: permiso_tracking
+            baseColumnNames: id_permiso
+            constraintName: fk_permiso_tracking_permiso
+            referencedTableName: permiso
+            referencedColumnNames: id_permiso
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: permiso_tracking
+            baseColumnNames: id_empleado
+            constraintName: fk_permiso_tracking_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true

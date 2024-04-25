@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - insert:
+            tableName: division
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_division
+                  value: 1234abcd
+              - column:
+                  name: nombre
+                  value: Recursos Humanos
+              - column:
+                  name: is_enabled
+                  value: false

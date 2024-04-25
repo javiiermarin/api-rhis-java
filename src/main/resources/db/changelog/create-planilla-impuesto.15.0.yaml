@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 15
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: planilla_impuesto
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_planilla_impuesto
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_planilla_impuesto_planilla
+              - column:
+                  name: calculo
+                  type: double
+              - column:
+                  name: id_pago_planilla
+                  type: varchar(36)
+              - column:
+                  name: id_impuesto
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: planilla_impuesto
+            baseColumnNames: id_pago_planilla
+            constraintName: fk_planilla_impuesto_planilla
+            referencedTableName: pago_planilla
+            referencedColumnNames: id_pago_planilla
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: planilla_impuesto
+            baseColumnNames: id_impuesto
+            constraintName: fk_planilla_impuesto_impuesto
+            referencedTableName: impuesto
+            referencedColumnNames: id_impuesto
+            validate: true
