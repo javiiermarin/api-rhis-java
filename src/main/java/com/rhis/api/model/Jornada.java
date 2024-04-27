@@ -27,7 +27,7 @@ public class Jornada {
     @Column(name = "hora_inicio")
     private LocalTime horaInicio;
 
-    @Column(name = "hora_fuin")
+    @Column(name = "hora_fin")
     private LocalTime horaFin;
 
     @Column(name = "valor")

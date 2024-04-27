@@ -39,9 +39,9 @@ public class Permiso {
     private Empleado empleado;
 
     @ManyToOne(targetEntity = TipoPermiso.class)
-    @JoinColumn(name = "tipo_permiso")
+    @JoinColumn(name = "id_tipo_permiso")
     private TipoPermiso tipoPermiso;
 
-    @OneToMany(targetEntity = PermisoTracking.class, mappedBy = "permiso", cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = PermisoTracking.class, mappedBy = "permiso", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<PermisoTracking> permisoTracking;
 }

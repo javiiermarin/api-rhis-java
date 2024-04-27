@@ -29,11 +29,11 @@ public class EmpleadoController {
         return new ResponseEntity<>(empleado, HttpStatus.CREATED);
     }
 
-    @GetMapping("/puestos")
-    public ResponseEntity<List<EmpleadoResponseDto>> obtenerEmpleadosPorPuesto(
-            @RequestParam(value = "idPuesto") String idPuesto
+    @GetMapping
+    public ResponseEntity<List<EmpleadoResponseDto>> obtenerEmpleados(
+            @RequestParam(value = "idPuesto", required = false) String idPuesto
     )throws PuestoNotFoundException{
-        var empleadosDto = empleadoService.obtenerEmpleadosPorPuesto(idPuesto);
+        var empleadosDto = empleadoService.obtenerEmpleados(idPuesto);
         return new ResponseEntity<>(empleadosDto, HttpStatus.OK);
     }
 }

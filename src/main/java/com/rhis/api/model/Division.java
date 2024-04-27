@@ -1,9 +1,6 @@
 package com.rhis.api.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
@@ -24,5 +21,9 @@ public class Division extends AuditingEntity{
 
     @Column(name = "is_enabled")
     private Boolean isEnabled;
+
+    @ManyToOne
+    @JoinColumn(name = "id_encargado")
+    private Empleado encargado;
 
 }

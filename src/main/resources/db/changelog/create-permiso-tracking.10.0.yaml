@@ -16,7 +16,7 @@ databaseChangeLog:
                     primaryKeyName: pk_permiso_tracking
               - column:
                   name: estado
-                  type: varchar(50)
+                  type: boolean
               - column:
                   name: id_permiso
                   type: varchar(36)

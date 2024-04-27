@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter
 public class NivelAcademicoResponseDto {
 
-    private String idNivelAcademico;
+    private String nivelAcademico;
     private String descripcion;
 }

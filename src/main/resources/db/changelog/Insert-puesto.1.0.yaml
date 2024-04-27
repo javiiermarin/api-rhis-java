@@ -1,0 +1,98 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - insert:
+            tableName: puesto
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_puesto
+                  value: 0eb88037-2b11-4ca0-a1b4-a9cd5ad713e5
+              - column:
+                  name: nombre
+                  value: Desarrollador Junior
+              - column:
+                  name: salario_maximo
+                  value: 5000
+              - column:
+                  name: salario_minimo
+                  value: 7000
+              - column:
+                  name: is_enabled
+                  value: true
+              - column:
+                  name: id_division
+                  value: ee25a61b-67c9-449b-9ff6-879e38bdc919
+
+
+        - insert:
+            tableName: puesto
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_puesto
+                  value: 40c45ed6-bfdb-41b5-ae44-22047d6cd6b4
+              - column:
+                  name: nombre
+                  value: Desarrollador Senior
+              - column:
+                  name: salario_maximo
+                  value: 13000
+              - column:
+                  name: salario_minimo
+                  value: 8000
+              - column:
+                  name: is_enabled
+                  value: true
+              - column:
+                  name: id_division
+                  value: ee25a61b-67c9-449b-9ff6-879e38bdc919
+
+        - insert:
+            tableName: puesto
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_puesto
+                  value: c0b7e4b8-c4bc-463e-8847-3e4dc1fa3ba5
+              - column:
+                  name: nombre
+                  value: Encargada de nomina
+              - column:
+                  name: salario_maximo
+                  value: 4500
+              - column:
+                  name: salario_minimo
+                  value: 6700
+              - column:
+                  name: is_enabled
+                  value: true
+              - column:
+                  name: id_division
+                  value: b5691c3c-ecce-47af-8e9c-dd7a946bdbdc
+
+        - insert:
+            tableName: puesto
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_puesto
+                  value: e1bb8734-3041-43e2-80b9-872e9cc5f731
+              - column:
+                  name: nombre
+                  value: Jefe departamento IT
+              - column:
+                  name: salario_maximo
+                  value: 16000
+              - column:
+                  name: salario_minimo
+                  value: 22000
+              - column:
+                  name: is_enabled
+                  value: true
+              - column:
+                  name: id_division
+                  value: ee25a61b-67c9-449b-9ff6-879e38bdc919

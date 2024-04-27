@@ -2,6 +2,8 @@ package com.rhis.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.rhis.api.enums.EstadoCivil;
+import com.rhis.api.enums.Genero;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -36,8 +38,7 @@ public class EmpleadoRequestDto {
     private String direccion;
 
     @NotNull
-    @Size(max = 25)
-    private String genero;
+    private Genero genero;
 
     @Email
     @Size(max = 150)
@@ -65,8 +66,7 @@ public class EmpleadoRequestDto {
     private LocalDate fechaSalida;
 
     @NotNull
-    @Size(max = 50)
-    private String estadoCivil;
+    private EstadoCivil estadoCivil;
 
     @NotNull
     @Size(max = 36)

@@ -1,5 +1,6 @@
 package com.rhis.api.mapper;
 
+import com.rhis.api.dto.PuestoRequestDto;
 import com.rhis.api.dto.PuestoResponseDto;
 import com.rhis.api.model.Puesto;
 import org.modelmapper.ModelMapper;
@@ -16,5 +17,9 @@ public class PuestoMapper {
 
     public PuestoResponseDto toDto(Puesto puesto){
         return modelMapper.map(puesto, PuestoResponseDto.class);
+    }
+
+    public Puesto toEntity(PuestoRequestDto puestoRequestDto){
+        return modelMapper.map(puestoRequestDto, Puesto.class);
     }
 }

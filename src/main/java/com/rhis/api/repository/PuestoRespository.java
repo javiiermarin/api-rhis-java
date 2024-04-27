@@ -9,4 +9,6 @@ public interface PuestoRespository extends JpaRepository<Puesto, String> {
 
     List<Puesto> findAllByDivision_IdDivisionAndIsEnabledTrue(String id_division);
 
+
+
 }

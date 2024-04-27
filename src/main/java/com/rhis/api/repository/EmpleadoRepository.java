@@ -8,6 +8,7 @@ import java.util.List;
 public interface EmpleadoRepository extends JpaRepository<Empleado, String> {
 
     List<Empleado> findAllByPuestoIdPuestoAndHabilitadoTrue(String idPuesto);
+    Empleado findByPuestoIdPuesto(String idPuesto);
 
     List<Empleado> findAllByPuestoDivisionIdDivisionAndHabilitadoTrue(String idDivision);
 

@@ -19,10 +19,10 @@ databaseChangeLog:
                   type: varchar(30)
               - column:
                   name: hora_inicio
-                  type: datetime
+                  type: time
               - column:
                   name: hora_fin
-                  type: datetime
+                  type: time
               - column:
                   name: valor
                   type: numeric(10,2)

@@ -10,13 +10,30 @@ databaseChangeLog:
             columns:
               - column:
                   name: id_tipo_permiso
-                  value: abcd123
+                  value: bc457e48-83d2-4d93-a279-f6da29ea32bc
               - column:
                   name: nombre
                   value: Nacimiento de un hijo
               - column:
                   name: descripcion
                   value: Permiso especial para los colaboradores que vayan a ser papas
+              - column:
+                  name: is_enabled
+                  value: true
+
+        - insert:
+            tableName: tipo_permiso
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_tipo_permiso
+                  value: 05b404b5-d0fa-4e12-8ce1-f8ef6c47b052
+              - column:
+                  name: nombre
+                  value: Fallecimiento de uno de los padres
+              - column:
+                  name: descripcion
+                  value: Permiso por el fallecimiento de unos de los padres del colaborador
               - column:
                   name: is_enabled
                   value: true

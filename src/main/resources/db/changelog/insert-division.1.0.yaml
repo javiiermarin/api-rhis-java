@@ -10,10 +10,24 @@ databaseChangeLog:
             columns:
               - column:
                   name: id_division
-                  value: 1234abcd
+                  value: b5691c3c-ecce-47af-8e9c-dd7a946bdbdc
               - column:
                   name: nombre
                   value: Recursos Humanos
               - column:
                   name: is_enabled
-                  value: false
+                  value: true
+
+        - insert:
+            tableName: division
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_division
+                  value: ee25a61b-67c9-449b-9ff6-879e38bdc919
+              - column:
+                  name: nombre
+                  value: IT
+              - column:
+                  name: is_enabled
+                  value: true

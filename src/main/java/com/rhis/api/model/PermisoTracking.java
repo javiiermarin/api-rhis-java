@@ -1,5 +1,6 @@
 package com.rhis.api.model;
 
+import com.rhis.api.enums.EstadoPermiso;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,7 @@ public class PermisoTracking {
     private String idPermisoTracking;
 
     @Column(name = "estado")
-    private String estado;
+    private boolean estado;
 
     @ManyToOne
     @JoinColumn(name = "id_permiso")

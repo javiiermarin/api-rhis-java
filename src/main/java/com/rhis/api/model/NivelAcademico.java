@@ -16,6 +16,9 @@ public class NivelAcademico {
     @Column(name = "id_nivel_academico")
     private String idNivelAcademico;
 
+    @Column(name = "nivel_academico")
+    private String nivelAcademico;
+
     @Column(name = "descripcion")
     private String descripcion;
 

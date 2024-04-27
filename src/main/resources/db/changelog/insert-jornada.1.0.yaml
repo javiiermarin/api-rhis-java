@@ -10,10 +10,36 @@ databaseChangeLog:
             columns:
               - column:
                   name: id_jornada
-                  value: 12345qwert
+                  value: 3135d163-6570-4c05-8a66-85c0a53b33f2
               - column:
                   name: jornada
-                  value: ordinaria
+                  value: diurna
+              - column:
+                  name: hora_inicio
+                  value: 06:00
+              - column:
+                  name: hora_fin
+                  value: 06:00
               - column:
                   name: valor
-                  value: 10.22
+                  value: 13.88
+
+        - insert:
+            tableName: jornada
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_jornada
+                  value: d9c87223-f4f1-40c3-a9c3-f3e06c627427
+              - column:
+                  name: jornada
+                  value: nocturna
+              - column:
+                  name: hora_inicio
+                  value: 06:00
+              - column:
+                  name: hora_fin
+                  value: 06:00
+              - column:
+                  name: valor
+                  value: 18.50

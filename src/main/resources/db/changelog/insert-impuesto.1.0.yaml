@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+     id: 1
+     author: jmarin
+
+     changes:
+       - insert:
+           tableName: impuesto
+           schemaName: rhis_data
+           columns:
+             - column:
+                 name: id_puesto
+                 value: f230134b-ea76-4102-aabd-d6d12a525da6
+             - column:
+                 name: nombre
+                 value: iggs
+             - column:
+                 name: porcentaje
+                 value: 0.055
+             - column:
+                name: descripcion
+                value: Impuesto de ley
+

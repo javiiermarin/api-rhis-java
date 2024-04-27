@@ -63,18 +63,12 @@ databaseChangeLog:
             validate: true
         - addForeignKeyConstraint:
             baseTableName: permiso
-            baseColumnNames: id_permiso_tracking
-            constraintName: fk_permiso_tracking
-            referencedTableName: permiso_tracking
-            referencedColumnNames: id_permiso_tracking
-            validate: true
-        - addForeignKeyConstraint:
-            baseTableName: permiso
-            baseColumnNames: id_permiso
+            baseColumnNames: id_tipo_permiso
             constraintName: fk_permiso_tipo
             referencedTableName: tipo_permiso
             referencedColumnNames: id_tipo_permiso
             validate: true
+
 
 
 

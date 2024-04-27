@@ -3,6 +3,7 @@ package com.rhis.api.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
@@ -25,6 +26,7 @@ public class HoraExtra {
     @Column(name = "hora_final")
     private LocalDateTime horaFinal;
 
+    @CreationTimestamp
     @Column(name = "fecha")
     private LocalDate fecha;
 

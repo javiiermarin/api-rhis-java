@@ -25,6 +25,6 @@ public class TipoPermiso {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "habilitado")
-    private Boolean habilitado;
+    @Column(name = "is_enabled")
+    private Boolean isEnbaled;
 }

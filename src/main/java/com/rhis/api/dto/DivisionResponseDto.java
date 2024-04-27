@@ -9,4 +9,5 @@ public class DivisionResponseDto {
 
     private String idDivision;
     private String nombre;
+    private EmpleadoPermisoResponseDto encargado;
 }

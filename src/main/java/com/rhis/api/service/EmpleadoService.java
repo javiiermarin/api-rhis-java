@@ -43,15 +43,23 @@ public class EmpleadoService {
     }
 
     /**
-     * Funcion que obtiene todos los empleados de un puesto especifico
+     * Funcion que obtiene todos los empleados de un puesto especifico || si no especificamos el puesto nos lista a todos los empleados
      * @param idPuesto
-     * @return
+     * @return empleados
      */
-    public List<EmpleadoResponseDto> obtenerEmpleadosPorPuesto(String idPuesto){
-        return empleadoRepository.findAllByPuestoIdPuestoAndHabilitadoTrue(idPuesto)
+    public List<EmpleadoResponseDto> obtenerEmpleados(String idPuesto){
+        if (idPuesto  != null){
+            return empleadoRepository.findAllByPuestoIdPuestoAndHabilitadoTrue(idPuesto)
+                    .stream()
+                    .map(empleadoMapper::toDto)
+                    .toList();
+        }
+
+        return empleadoRepository.findAll()
                 .stream()
                 .map(empleadoMapper::toDto)
                 .toList();
+
     }
 
 }

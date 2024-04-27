@@ -36,15 +36,19 @@ databaseChangeLog:
   - include:
       file: db/changelog/create-vacaciones.18.0.yaml
   - include:
-      file: db/changelog/insert-tipo-permiso.1.0.yaml
-  - include:
-      file: db/changelog/insert-division.1.0.yaml
-  - include:
       file: db/changelog/update-division.1.0.yaml
   - include:
       file: db/changelog/update-empleado.1.0.yaml
   - include:
+      file: db/changelog/insert-tipo-permiso.1.0.yaml
+  - include:
+      file: db/changelog/insert-division.1.0.yaml
+  - include:
+      file: db/changelog/insert-puesto.1.0.yaml
+  - include:
       file: db/changelog/insert-jornada.1.0.yaml
+  - include:
+      file: db/changelog/insert-empleado.1.0.yaml
 
 
 

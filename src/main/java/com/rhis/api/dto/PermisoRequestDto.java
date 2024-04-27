@@ -1,12 +1,12 @@
 package com.rhis.api.dto;
 
-import com.rhis.api.model.Empleado;
-import com.rhis.api.model.TipoPermiso;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Setter
@@ -18,15 +18,17 @@ public class PermisoRequestDto {
     private String descripcion;
 
     @NotNull
-    private LocalDateTime fechaInicio;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaInicio;
 
     @NotNull
-    private LocalDateTime fechaFinal;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaFinal;
 
     @NotNull
-    private Empleado empleado;
+    private String empleado;
 
     @NotNull
-    private TipoPermiso tipoPermiso;
+    private String tipoPermiso;
 
 }
