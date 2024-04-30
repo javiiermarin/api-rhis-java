@@ -63,6 +63,9 @@ databaseChangeLog:
                   name: estado_civil
                   type: varchar(50)
               - column:
+                  name: salario
+                  type: double
+              - column:
                   name: create_at
                   type: datetime
               - column:

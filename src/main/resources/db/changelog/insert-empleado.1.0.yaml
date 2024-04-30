@@ -54,6 +54,9 @@ databaseChangeLog:
                   name: estado_civil
                   value:
               - column:
+                  name: salario
+                  value: 6000
+              - column:
                   name: id_puesto
                   value: 0eb88037-2b11-4ca0-a1b4-a9cd5ad713e5
               - column:
@@ -203,6 +206,9 @@ databaseChangeLog:
                   name: estado_civil
                   value:
               - column:
+                  name: salario
+                  value: 6000
+              - column:
                   name: id_puesto
                   value: e1bb8734-3041-43e2-80b9-872e9cc5f731
               - column:
@@ -351,6 +357,9 @@ databaseChangeLog:
                     - column:
                         name: estado_civil
                         value:
+                    - column:
+                        name: salario
+                        value: 6000
                     - column:
                         name: id_puesto
                         value: c0b7e4b8-c4bc-463e-8847-3e4dc1fa3ba5

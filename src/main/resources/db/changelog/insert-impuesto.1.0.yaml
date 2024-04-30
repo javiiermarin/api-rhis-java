@@ -9,8 +9,8 @@ databaseChangeLog:
            schemaName: rhis_data
            columns:
              - column:
-                 name: id_puesto
-                 value: f230134b-ea76-4102-aabd-d6d12a525da6
+                 name: id_impuesto
+                 value: 7022fd3d-e7c6-4a5e-a59b-f45c7284f84d
              - column:
                  name: nombre
                  value: iggs

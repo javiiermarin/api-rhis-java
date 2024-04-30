@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: marcacion_empleado
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_marcacion_empleado
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_marcacion_empleado
+              - column:
+                  name: id_marcacion
+                  type: varchar(36)
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+              - column:
+                  name: hora
+                  type: datetime
+        - addForeignKeyConstraint:
+            baseTableName: marcacion_empleado
+            baseColumnNames: id_marcacion
+            constraintName: fk_marcacion_empleado_marcacion
+            referencedTableName: marcacion
+            referencedColumnNames: id_marcacion
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: marcacion_empleado
+            baseColumnNames: id_empleado
+            constraintName: fk_marcacion_empleado_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true

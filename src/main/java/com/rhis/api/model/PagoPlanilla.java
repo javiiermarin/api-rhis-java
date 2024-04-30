@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Setter
@@ -18,29 +20,23 @@ public class PagoPlanilla {
     @Column(name = "id_pago_planilla" )
     private String idPagoPlanilla;
 
-    @Column(name = "salario")
-    private Double salario;
-
     @Column(name = "bonificacion_ley")
-    private Double bonificacionLey;
+    private BigDecimal bonificacionLey;
 
     @Column(name = "sueldo_base")
-    private Double sueldoBase;
+    private BigDecimal sueldoBase;
 
-    @Column(name = "sueldo_neto")
-    private Double sueldoNeto;
+    @Column(name = "salario_neto")
+    private BigDecimal salarioNeto;
 
     @Column(name = "fecha_inicio")
-    private LocalDateTime fechaInicio;
+    private LocalDate fechaInicio;
 
     @Column(name = "fecha_final")
-    private LocalDateTime fechaFinal;
+    private LocalDate fechaFinal;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
-
-
-
 
 }

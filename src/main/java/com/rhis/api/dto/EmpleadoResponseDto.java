@@ -5,6 +5,7 @@ import com.rhis.api.enums.Genero;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,6 +30,7 @@ public class EmpleadoResponseDto {
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
     private EstadoCivil estadoCivil;
+    private BigDecimal salario;
     private PuestoPermisoResponseDto puesto;
     private List<EmpleadoReferenciaResponseDto> empleadoReferencia;
     private List<ExperienciaLaboralResponseDto> experienciaLaboral;

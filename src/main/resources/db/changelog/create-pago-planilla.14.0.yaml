@@ -15,9 +15,6 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_pago_planilla
               - column:
-                  name: salario
-                  type: numeric(10,2)
-              - column:
                   name: sueldo_base
                   type: numeric(10,2)
               - column:

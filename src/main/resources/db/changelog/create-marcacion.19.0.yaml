@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: marcacion
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_marcacion
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_marcacion
+              - column:
+                  name: hora_entrada
+                  type: time
+              - column:
+                  name: hora_salida_almuerzo
+                  type: time
+              - column:
+                  name: hora_entrada_almuerzo
+                  type: time
+              - column:
+                  name: hora_salida
+                  type: time
+              - column:
+                  name: tiempo_antes
+                  type: time
+              - column:
+                  name: descripcion
+                  type: varchar(100)
+              - column:
+                  name: habilitado
+                  type: boolean

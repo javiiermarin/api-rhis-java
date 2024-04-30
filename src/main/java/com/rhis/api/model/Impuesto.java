@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.math.BigDecimal;
+
 @Setter
 @Getter
 @Entity
@@ -23,11 +25,9 @@ public class Impuesto {
     private String nombre;
 
     @Column(name = "porcentaje")
-    private Double porcentaje;
+    private BigDecimal porcentaje;
 
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "is_deleted")
-    private boolean isDeleted;
 }

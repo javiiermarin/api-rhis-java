@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -73,6 +74,9 @@ public class Empleado extends AuditingEntity{
 
     @Column(name = "estado_civil")
     private EstadoCivil estadoCivil;
+
+    @Column(name = "salario")
+    private BigDecimal salario;
 
     @ManyToOne
     @JoinColumn(name = "id_puesto")

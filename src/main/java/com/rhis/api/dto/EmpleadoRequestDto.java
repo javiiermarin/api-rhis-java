@@ -10,6 +10,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -67,6 +68,9 @@ public class EmpleadoRequestDto {
 
     @NotNull
     private EstadoCivil estadoCivil;
+
+    @NotNull
+    private BigDecimal salario;
 
     @NotNull
     @Size(max = 36)

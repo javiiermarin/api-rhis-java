@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - insert:
+            tableName: marcacion
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_marcacion
+                  value: c0c44384-9797-449d-9f7b-c250767cf2ed
+              - column:
+                  name: hora_entrada
+                  value: 07:00
+              - column:
+                  name: hora_salida_almuerzo
+                  value: 05:00
+              - column:
+                  name: hora_entrada_almuerzo
+                  value: 01:00
+              - column:
+                  name: hora_salida
+                  value: 04:30
+              - column:
+                  name: tiempo_antes
+                  value: 00:15
+              - column:
+                  name: descripcion
+                  value: Horario temporada alta
+              - column:
+                  name: habilitado
+                  value: true
