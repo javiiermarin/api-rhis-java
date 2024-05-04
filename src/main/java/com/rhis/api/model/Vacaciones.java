@@ -8,6 +8,7 @@ import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -30,7 +31,13 @@ public class Vacaciones {
     @Column(name = "fecha_final")
     private LocalDate fechaFinal;
 
+    @Column(name = "dias_disponibles")
+    private Integer diasDisponibles;
+
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
+
+    @OneToMany(targetEntity = VacacionesTracking.class, mappedBy = "vacaciones", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<VacacionesTracking> vacacionesTracking;
 }

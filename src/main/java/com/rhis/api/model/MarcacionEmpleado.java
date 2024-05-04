@@ -6,7 +6,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Setter
 @Getter
@@ -19,13 +21,24 @@ public class MarcacionEmpleado {
     @Column(name = "id_marcacion_empleado")
     private String idMarcacionEmpleado;
 
-    @CreationTimestamp
-    @Column(name = "hora")
-    private LocalDateTime hora;
 
-    @ManyToOne
-    @JoinColumn(name = "id_marcacion")
-    private Marcacion marcacion;
+    @Column(name = "hora_entrada")
+    private LocalTime horaEntrada;
+
+
+    @Column(name = "hora_salida_almuerzo")
+    private LocalTime horaSalidaAlmuerzo;
+
+
+    @Column(name = "hora_entrada_almuerzo")
+    private LocalTime horaEntradaAlmuerzo;
+
+
+    @Column(name = "hora_salida")
+    private LocalTime horaSalida;
+
+    @Column(name = "fecha")
+    private LocalDate fecha;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")

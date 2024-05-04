@@ -15,21 +15,23 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_marcacion_empleado
               - column:
-                  name: id_marcacion
-                  type: varchar(36)
+                  name: hora_entrada
+                  type: time
+              - column:
+                  name: hora_salida_almuerzo
+                  type: time
+              - column:
+                  name: hora_entrada_almuerzo
+                  type: time
+              - column:
+                  name: hora_salida
+                  type: time
               - column:
                   name: id_empleado
                   type: varchar(36)
               - column:
-                  name: hora
-                  type: datetime
-        - addForeignKeyConstraint:
-            baseTableName: marcacion_empleado
-            baseColumnNames: id_marcacion
-            constraintName: fk_marcacion_empleado_marcacion
-            referencedTableName: marcacion
-            referencedColumnNames: id_marcacion
-            validate: true
+                  name: fecha
+                  type: date
         - addForeignKeyConstraint:
             baseTableName: marcacion_empleado
             baseColumnNames: id_empleado

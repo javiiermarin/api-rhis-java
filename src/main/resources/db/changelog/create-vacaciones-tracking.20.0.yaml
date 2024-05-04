@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: vacaciones_tracking
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_vacaciones_tracking
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_vacaciones_tracking
+              - column:
+                  name: estado
+                  type: boolean
+              - column:
+                  name: id_vacaciones
+                  type: varchar(36)
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: vacaciones_tracking
+            baseColumnNames: id_vacaciones
+            constraintName: fk_tracking_vacaciones
+            referencedTableName: vacaciones
+            referencedColumnNames: id_vacaciones
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: vacaciones_tracking
+            baseColumnNames: id_empleado
+            constraintName: fk_vacaciones_tracking_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true

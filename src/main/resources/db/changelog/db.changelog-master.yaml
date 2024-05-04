@@ -36,6 +36,8 @@ databaseChangeLog:
   - include:
       file: db/changelog/create-vacaciones.18.0.yaml
   - include:
+      file: db/changelog/create-vacaciones-tracking.20.0.yaml
+  - include:
       file: db/changelog/create-marcacion.19.0.yaml
   - include:
       file: db/changelog/create-marcacion-empleado.20.0.yaml

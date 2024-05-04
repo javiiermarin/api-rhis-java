@@ -3,7 +3,6 @@ package com.rhis.api.service;
 import com.rhis.api.dto.PermisoRequestDto;
 import com.rhis.api.dto.PermisoResponseDto;
 import com.rhis.api.mapper.PermisoMapper;
-import com.rhis.api.model.Permiso;
 import com.rhis.api.model.PermisoTracking;
 import com.rhis.api.repository.EmpleadoRepository;
 import com.rhis.api.repository.PermisoRepository;
@@ -59,9 +58,6 @@ public class PermisoService {
         permisoTracking2.setEstado(false);
 
         permiso.setPermisoTracking(List.of(permisoTracking1, permisoTracking2));
-
-
-
 
         return permisoMapper.toDto(permisoRepository.save(permiso));
     }

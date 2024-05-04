@@ -5,11 +5,11 @@ databaseChangeLog:
 
       changes:
         - insert:
-            tableName: marcacion
+            tableName: hora_empresa
             schemaName: rhis_data
             columns:
               - column:
-                  name: id_marcacion
+                  name: id_hora_empresa
                   value: c0c44384-9797-449d-9f7b-c250767cf2ed
               - column:
                   name: hora_entrada
@@ -23,9 +23,6 @@ databaseChangeLog:
               - column:
                   name: hora_salida
                   value: 04:30
-              - column:
-                  name: tiempo_antes
-                  value: 00:15
               - column:
                   name: descripcion
                   value: Horario temporada alta

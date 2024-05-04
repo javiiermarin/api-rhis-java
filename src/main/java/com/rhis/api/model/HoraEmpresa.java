@@ -13,13 +13,13 @@ import java.time.LocalTime;
 @Setter
 @Getter
 @Entity
-@Table(name = "marcacion", schema = "rhis_data")
-public class Marcacion {
+@Table(name = "hora_empresa", schema = "rhis_data")
+public class HoraEmpresa {
 
     @Id
     @UuidGenerator
-    @Column(name = "id_marcacion")
-    private String idMarcacion;
+    @Column(name = "id_hora_empresa")
+    private String idHoraEmpresa;
 
     @Column(name = "hora_entrada")
     private LocalTime horaEntrada;
@@ -32,9 +32,6 @@ public class Marcacion {
 
     @Column(name = "hora_salida")
     private LocalTime horaSalida;
-
-    @Column(name = "tiempo_antes")
-    private LocalTime tiempoAntes;
 
     @Column(name = "descripcion")
     private String descripcion;

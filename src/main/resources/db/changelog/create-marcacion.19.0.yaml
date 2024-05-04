@@ -5,15 +5,15 @@ databaseChangeLog:
 
       changes:
         - createTable:
-            tableName: marcacion
+            tableName: hora_empresa
             schemaName: rhis_data
             columns:
               - column:
-                  name: id_marcacion
+                  name: id_hora_empresa
                   type: varchar(36)
                   constraints:
                     primaryKey: true
-                    primaryKeyName: pk_marcacion
+                    primaryKeyName: pk_hora_empresa
               - column:
                   name: hora_entrada
                   type: time
@@ -25,9 +25,6 @@ databaseChangeLog:
                   type: time
               - column:
                   name: hora_salida
-                  type: time
-              - column:
-                  name: tiempo_antes
                   type: time
               - column:
                   name: descripcion

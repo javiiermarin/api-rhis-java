@@ -10,5 +10,5 @@ import lombok.Setter;
 public class MarcacionEmpleadoRequestDto {
 
     @NotBlank
-    private String idEmpleado;
+    private String empleado;
 }

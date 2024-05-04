@@ -8,22 +8,23 @@ import org.hibernate.annotations.UuidGenerator;
 @Setter
 @Getter
 @Entity
-@Table(name = "permiso_tracking", schema = "rhis_data")
-public class PermisoTracking {
+@Table(name = "vacaciones_tracking", schema = "rhis_data")
+public class VacacionesTracking {
 
     @Id
     @UuidGenerator
-    @Column(name = "id_permiso_tracking")
-    private String idPermisoTracking;
+    @Column(name = "id_vacaciones_tracking")
+    private String idVacacionesTracking;
 
     @Column(name = "estado")
     private boolean estado;
 
     @ManyToOne
-    @JoinColumn(name = "id_permiso")
-    private Permiso permiso;
+    @JoinColumn(name = "id_vacaciones")
+    private Vacaciones vacaciones;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
+
 }
