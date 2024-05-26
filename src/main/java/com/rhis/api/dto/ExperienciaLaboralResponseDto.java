@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 public class ExperienciaLaboralResponseDto {
 
+    private String idExperienciaLaboral;
     private String nombreEmpresa;
     private int antiguedad;
     private String telefono;

@@ -21,6 +21,13 @@ public class PermisoTrackingService {
         this.permisoTrackingMapper = permisoTrackingMapper;
     }
 
+    /**
+     * Funcion que lista todos los estados dependiendo de un estado
+     *
+     * @param estado
+     * @return
+     */
+
     public List<PermisoTrackingResponseDto> obtenerTracking(boolean estado){
 
         return permisoTrackingRepository.findAllByEstado(estado)
@@ -28,6 +35,14 @@ public class PermisoTrackingService {
                 .map(permisoTrackingMapper::toDto)
                 .toList();
     }
+
+    /**
+     * funcion que modifica el estado de un permiso
+     *
+     * @param idPermisoTracking
+     * @param permisoTrackingRequestDto
+     * @return
+     */
 
     public PermisoTrackingResponseDto actualizarTracking(String idPermisoTracking,
                                                          PermisoTrackingRequestDto permisoTrackingRequestDto){

@@ -47,6 +47,7 @@ public class DivisionService {
      */
 
     public DivisionResponseDto crearDivision(DivisionRequestDto divisionRequestDto){
+        System.out.println(divisionRequestDto);
         var encargado = empleadoRepository.findById(divisionRequestDto.getEncargado());
 
         var division = divisionMapper.toEntity(divisionRequestDto);
@@ -56,14 +57,25 @@ public class DivisionService {
         return divisionMapper.toDto(divisionRespository.save(division));
     }
 
+    /**
+     * metodo que nos lista todas las divisiones registradas
+     * @param idDivision
+     * @return
+     */
+
     private Optional<Division> obtenerDivision(String idDivision) {
         return divisionRespository.findByIdDivision(idDivision);
-
     }
 
-    public DivisionResponseDto actualizarDivision(String idDivision, DivisionRequestDto divisionRequestDto) throws DivisionNotFoundException {
+    /**
+     * metodo para modificar los datos de una division
+     * @param divisionRequestDto
+     * @return
+     * @throws DivisionNotFoundException
+     */
+    public DivisionResponseDto actualizarDivision(DivisionRequestDto divisionRequestDto) throws DivisionNotFoundException {
 
-        var division = obtenerDivision(idDivision).orElseThrow(DivisionNotFoundException::new);
+        var division = obtenerDivision(divisionRequestDto.getIdDivision()).orElseThrow(DivisionNotFoundException::new);
         var encargado = empleadoRepository.findById(divisionRequestDto.getEncargado());
         division.setNombre(divisionRequestDto.getNombre());
         division.setIsEnabled(divisionRequestDto.getIsEnabled());
@@ -72,8 +84,14 @@ public class DivisionService {
         return divisionMapper.toDto(divisionRespository.save(division));
     }
 
-
-
+    /**
+     * metodo para eliminar una division
+     * @param idDivision
+     * @throws DivisionNotFoundException
+     */
+    public void eliminarDivision(String idDivision) throws DivisionNotFoundException {
+         divisionRespository.deleteById(idDivision);
+    }
 
 
 }

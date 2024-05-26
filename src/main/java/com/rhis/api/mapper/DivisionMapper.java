@@ -16,7 +16,10 @@ public class DivisionMapper {
     }
 
     public DivisionResponseDto toDto(Division division){
-        return modelMapper.map(division, DivisionResponseDto.class);
+
+        var divisionResponseDto = modelMapper.map(division, DivisionResponseDto.class);
+        divisionResponseDto.setEncargado(division.getEncargado().getIdEmpleado());
+        return divisionResponseDto;
     }
 
     public Division toEntity(DivisionRequestDto divisionRequestDto){

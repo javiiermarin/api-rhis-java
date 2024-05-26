@@ -20,6 +20,13 @@ public class PermisoTrackingController {
         this.permisoTrackingService = permisoTrackingService;
     }
 
+    /**
+     * peticion que devuelve una lista de permisos traking dependiendo de el estado
+     *
+     * @param estado
+     * @return
+     */
+
     @GetMapping
     public ResponseEntity<List<PermisoTrackingResponseDto>> obtenerPermisoTracking(
             @RequestParam(value = "estado") boolean estado){
@@ -27,6 +34,14 @@ public class PermisoTrackingController {
         var permisoTracking = permisoTrackingService.obtenerTracking(estado);
         return new ResponseEntity<>(permisoTracking, HttpStatus.OK);
     }
+
+    /**
+     * peticion para actualizar el estado de un permiso
+     *
+     * @param idTracking
+     * @param permisoTrackingRequestDto
+     * @return
+     */
 
     @PutMapping("/{idTracking}")
     public ResponseEntity<PermisoTrackingResponseDto> actualizarPermisoTracking(

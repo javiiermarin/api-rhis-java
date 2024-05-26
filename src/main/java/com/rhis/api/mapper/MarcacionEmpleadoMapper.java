@@ -12,7 +12,7 @@ public class MarcacionEmpleadoMapper {
 
     private final ModelMapper strictModelMapper;
 
-    public MarcacionEmpleadoMapper(ModelMapper modelMapper, ModelMapper strictModelMapper) {
+    public MarcacionEmpleadoMapper(ModelMapper strictModelMapper) {
         this.strictModelMapper = strictModelMapper;
     }
 

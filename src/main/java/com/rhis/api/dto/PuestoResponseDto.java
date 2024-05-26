@@ -11,6 +11,7 @@ public class PuestoResponseDto {
     private String nombre;
     private Double salarioMaximo;
     private Double salarioMinimo;
-    private DivisionResponseDto division;
+    private Boolean isEnabled;
+    private DivisionRequestDto division;
 
 }

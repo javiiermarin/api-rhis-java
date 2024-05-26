@@ -13,6 +13,9 @@ import java.time.LocalTime;
 @Getter
 public class JornadaRequestDto {
 
+    @Size(max = 36)
+    private String idJornada;
+
     @NotBlank
     @Size(max = 30)
     private String jornada;

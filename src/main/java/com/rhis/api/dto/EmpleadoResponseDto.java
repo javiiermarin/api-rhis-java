@@ -31,7 +31,7 @@ public class EmpleadoResponseDto {
     private LocalDate fechaSalida;
     private EstadoCivil estadoCivil;
     private BigDecimal salario;
-    private PuestoPermisoResponseDto puesto;
+    private PuestoResponseDto puesto;
     private List<EmpleadoReferenciaResponseDto> empleadoReferencia;
     private List<ExperienciaLaboralResponseDto> experienciaLaboral;
     private List<NivelAcademicoResponseDto> nivelAcademico;

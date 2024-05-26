@@ -8,5 +8,6 @@ import lombok.Setter;
 public class PuestoPermisoResponseDto {
 
     private String nombre;
+    private DivisionResponseDto division;
 
 }

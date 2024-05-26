@@ -39,3 +39,30 @@ databaseChangeLog:
             referencedTableName: empleado
             referencedColumnNames: id_empleado
             validate: true
+
+
+        - createTable:
+            tableName: marcacion_hora_extra
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_marcacion_empleado
+                  type: varchar(36)
+              - column:
+                  name: id_hora_extra
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: marcacion_hora_extra
+            baseColumnNames: id_marcacion_empleado
+            constraintName: fk_marcacion_hora
+            referencedTableName: marcacion_empleado
+            referencedColumnNames: id_marcacion_empleado
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseTableName: hora_extra
+            baseColumnNames: id_hora_extra
+            constraintName: fk_marcacion_hora
+            referencedTableName: hora_extra
+            referencedColumnNames: id_hora_extra
+            validate: true

@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class PuestoMapper {
 
-    private final ModelMapper modelMapper;
+    private final ModelMapper strictModelMapper;
 
-    public PuestoMapper(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
+    public PuestoMapper(ModelMapper strictModelMapper) {
+        this.strictModelMapper = strictModelMapper;
     }
 
     public PuestoResponseDto toDto(Puesto puesto){
-        return modelMapper.map(puesto, PuestoResponseDto.class);
+        return strictModelMapper.map(puesto, PuestoResponseDto.class);
     }
 
     public Puesto toEntity(PuestoRequestDto puestoRequestDto){
-        return modelMapper.map(puestoRequestDto, Puesto.class);
+        return strictModelMapper.map(puestoRequestDto, Puesto.class);
     }
 }

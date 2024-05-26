@@ -23,4 +23,11 @@ public class EmpleadoMapper {
         return modelMapper.map(empleadoRequestDto, Empleado.class);
     }
 
+    public void modificar(EmpleadoRequestDto empleadoRequestDto, Empleado empleado){
+        empleado.setNombres(empleadoRequestDto.getNombres());
+        empleado.setApellidos(empleadoRequestDto.getApellidos());
+        empleado.setDpi(empleadoRequestDto.getDpi());
+
+    }
+
 }

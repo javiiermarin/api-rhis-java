@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 public class EmpleadoPermisoResponseDto {
 
+    private String idEmpleado;
     private String nombres;
     private String apellidos;
     private PuestoPermisoResponseDto puesto;

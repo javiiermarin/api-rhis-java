@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+
 public interface MarcacionEmpleadoRepository extends JpaRepository<MarcacionEmpleado, String> {
 
-    @Query("SELECT me FROM MarcacionEmpleado me WHERE me.fecha = CURRENT_DATE AND me.empleado.idEmpleado = :id_empleado ORDER BY me.idMarcacionEmpleado DESC")
-    MarcacionEmpleado idMarcacionEmpleado(@Param("id_empleado") String idEmpleado);
-
+    @Query("SELECT me FROM MarcacionEmpleado me WHERE me.fecha = CURRENT_DATE AND me.empleado.idEmpleado = :id_empleado ORDER BY me.idMarcacionEmpleado LIMIT 1")
+    MarcacionEmpleado marcacionEmpleado(@Param("id_empleado") String idEmpleado);
 
 }

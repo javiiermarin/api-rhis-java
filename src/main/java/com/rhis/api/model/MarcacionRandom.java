@@ -7,25 +7,22 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Setter
 @Getter
 @Entity
-@Table(name = "hora_extra", schema = "rhis_data")
-public class HoraExtra {
+@Table(name = "marcacion_random", schema = "rhis_data")
+public class MarcacionRandom {
 
     @Id
     @UuidGenerator
-    @Column(name = "id_hora_extra")
-    private String idHoraExtra;
+    @Column(name = "id_marcacion_random")
+    private String idMarcacionRandom;
 
-    @Column(name = "hora_inicio")
-    private LocalTime horaInicio;
+    @Column(name = "hora")
+    private LocalTime hora;
 
-    @Column(name = "hora_final")
-    private LocalTime horaFinal;
 
     @CreationTimestamp
     @Column(name = "fecha")
@@ -34,11 +31,4 @@ public class HoraExtra {
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
-
-    @Column(name = "horas")
-    private long horas;
-
-    @Column(name = "habilitado")
-    private Boolean habilitad;
-
 }

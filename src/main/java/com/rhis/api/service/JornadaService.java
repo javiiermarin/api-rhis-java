@@ -6,6 +6,8 @@ import com.rhis.api.mapper.JornadaMapper;
 import com.rhis.api.repository.JornadaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class JornadaService {
 
@@ -26,5 +28,35 @@ public class JornadaService {
         var jornada = jornadaMapper.toEntity(jornadaRequestDto);
 
         return jornadaMapper.toDto(jornadaRepository.save(jornada));
+    }
+
+    /**
+     * Funcion que devuelve todas las jornadas
+     *
+     * @return
+     */
+    public List<JornadaResponseDto> listarJornadas(){
+        return jornadaRepository.findAll()
+                .stream()
+                .map(jornadaMapper::toDto)
+                .toList();
+    }
+
+    /**
+     * Funcion que modifica una jornada
+     *
+     * @param jornadaRequestDto
+     * @return
+     */
+
+    public JornadaResponseDto modificarJornada(JornadaRequestDto jornadaRequestDto){
+        var jornada = jornadaRepository.findById(jornadaRequestDto.getIdJornada()).orElseThrow();
+
+        jornada.setHoraInicio(jornadaRequestDto.getHoraInicio());
+        jornada.setHoraFin(jornadaRequestDto.getHoraFin());
+        jornada.setValor(jornadaRequestDto.getValor());
+
+        return jornadaMapper.toDto(jornadaRepository.save(jornada));
+
     }
 }

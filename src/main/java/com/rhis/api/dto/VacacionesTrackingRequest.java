@@ -5,9 +5,8 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class VacacionesTrackingResponseDto {
+public class VacacionesTrackingRequest {
 
     private String idVacacionesTracking;
-    private boolean estado;
-    private EmpleadoPermisoResponseDto empleado;
+    private Boolean estado;
 }

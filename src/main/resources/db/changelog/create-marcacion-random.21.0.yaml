@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jmarin
+
+      changes:
+        - createTable:
+            tableName: marcacion_random
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_marcacion_random
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_marcacion_random
+              - column:
+                  name: hora
+                  type: time
+              - column:
+                  name: fecha
+                  type: date
+              - column:
+                  name: id_empleado
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseTableName: marcacion_random
+            baseColumnNames: id_empleado
+            constraintName: fk_random_empleado
+            referencedTableName: empleado
+            referencedColumnNames: id_empleado
+            validate: true

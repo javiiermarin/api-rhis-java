@@ -8,6 +8,7 @@ import com.rhis.api.repository.EmpleadoRepository;
 import com.rhis.api.repository.VacacionesRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,6 +24,12 @@ public class VacacionesService {
         this.vacacionesMapper = vacacionesMapper;
     }
 
+    /**
+     * metodo para registrar vacaciones
+     *
+     * @param vacacionesRequestDto
+     * @return
+     */
     public VacacionesResponseDto registrarVacaciones(VacacionesRequestDto vacacionesRequestDto){
         var empleado = empleadoRepository.findById(vacacionesRequestDto.getEmpleado());
         var encargadoDivision = empleado.get().getPuesto().getDivision().getEncargado();
@@ -47,11 +54,44 @@ public class VacacionesService {
 
     }
 
+    /**
+     * metodo para listar las vacaciones por division
+     *
+     * @param iDivision
+     * @return
+     */
     public List<VacacionesResponseDto> obtenerVacacionesPorDivison(String iDivision){
         return vacacionesRepository.findAllByEmpleadoPuestoDivisionIdDivision(iDivision)
                 .stream()
                 .map(vacacionesMapper::toDto)
                 .toList();
+    }
+
+
+    /**
+     * Funcion que modifica el estado de una solicitud de vacaciones
+     * @param vacacionesRequestDto
+     * @return
+     */
+    public VacacionesResponseDto modificarVacaiones(VacacionesRequestDto vacacionesRequestDto){
+        var vacaciones = vacacionesRepository.findById(vacacionesRequestDto.getIdVacaciones())
+                .orElseThrow();
+
+        var empleado = empleadoRepository.findById(vacacionesRequestDto.getEmpleado());
+
+        vacacionesMapper.modificar(vacacionesRequestDto, vacaciones);
+        vacaciones.setEmpleado(empleado.get());
+
+
+        for (VacacionesTracking tracking : vacacionesRequestDto.getVacacionesTracking()){
+            for (VacacionesTracking vacacionesTracking : vacaciones.getVacacionesTracking()) {
+                if (tracking.getIdVacacionesTracking().equalsIgnoreCase(vacacionesTracking.getIdVacacionesTracking())){
+                    vacacionesTracking.setEstado(tracking.isEstado());
+                }
+            }
+        }
+
+        return vacacionesMapper.toDto(vacacionesRepository.save(vacaciones));
     }
 
 

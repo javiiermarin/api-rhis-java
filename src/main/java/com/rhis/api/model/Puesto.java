@@ -27,8 +27,7 @@ public class Puesto {
     @Column(name = "is_enabled")
     private Boolean isEnabled;
 
-    @ManyToOne()
+    @OneToOne
     @JoinColumn(name = "id_division")
     private Division division;
-
 }

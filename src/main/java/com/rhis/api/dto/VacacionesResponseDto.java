@@ -15,6 +15,7 @@ public class VacacionesResponseDto {
     private LocalDateTime fechaSolicitud;
     private LocalDate fechaInicio;
     private LocalDate fechaFinal;
+    private String descripcion;
     private EmpleadoPermisoResponseDto empleado;
     private List<VacacionesTrackingResponseDto> vacacionesTracking;
 

@@ -17,16 +17,22 @@ databaseChangeLog:
                     primaryKeyName: pk_hora_extra
               - column:
                   name: hora_inicio
-                  type: datetime
+                  type: time
               - column:
                   name: hora_final
-                  type: datetime
+                  type: time
               - column:
                   name: fecha
-                  type: datetime
+                  type: date
               - column:
                   name: id_empleado
                   type: varchar(36)
+              - column:
+                  name: horas
+                  type: int
+              - column:
+                  name: habilitado
+                  type: boolean
               - column:
                   name: id_jornada
                   type: varchar(36)

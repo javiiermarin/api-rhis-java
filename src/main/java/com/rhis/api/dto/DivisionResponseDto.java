@@ -9,5 +9,7 @@ public class DivisionResponseDto {
 
     private String idDivision;
     private String nombre;
-    private EmpleadoPermisoResponseDto encargado;
+    private Boolean isEnabled;
+    private String encargado;
+
 }

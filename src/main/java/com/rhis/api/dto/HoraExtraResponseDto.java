@@ -14,5 +14,7 @@ public class HoraExtraResponseDto {
     private LocalDateTime horaInicio;
     private LocalDateTime horaFinal;
     private LocalDate fecha;
+    private long horas;
+    private Boolean habilitado;
     private EmpleadoResponseDto empleado;
 }

@@ -22,4 +22,10 @@ public class VacacionesMapper {
     public Vacaciones toEntity(VacacionesRequestDto vacacionesRequestDto) {
         return modelMapper.map(vacacionesRequestDto, Vacaciones.class);
     }
+
+    public void modificar (VacacionesRequestDto vacacionesRequestDto, Vacaciones vacaciones){
+        vacaciones.setFechaInicio(vacacionesRequestDto.getFechaInicio());
+        vacaciones.setFechaFinal(vacacionesRequestDto.getFechaFinal());
+        vacaciones.setDescripcion(vacacionesRequestDto.getDescripcion());
+    }
 }

@@ -7,7 +7,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Setter
@@ -37,11 +36,18 @@ public class MarcacionEmpleado {
     @Column(name = "hora_salida")
     private LocalTime horaSalida;
 
+    @CreationTimestamp
     @Column(name = "fecha")
     private LocalDate fecha;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
+
+    @OneToOne
+    @JoinTable(name = "marcacion_hora_extra",
+                joinColumns = @JoinColumn(name = "id_marcacion_empleado"),
+                inverseJoinColumns = @JoinColumn(name = "id_hora_extra"))
+    private HoraExtra horaExtra;
 
 }

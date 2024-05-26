@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/rhis/empleados")
 public class EmpleadoController {
@@ -35,5 +36,12 @@ public class EmpleadoController {
     )throws PuestoNotFoundException{
         var empleadosDto = empleadoService.obtenerEmpleados(idPuesto);
         return new ResponseEntity<>(empleadosDto, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<EmpleadoResponseDto> modificarEmpleado(@RequestBody
+                                                                 @Valid EmpleadoRequestDto empleadoRequestDto){
+        var empleado = empleadoService.editarEmpleado(empleadoRequestDto);
+        return new ResponseEntity<>(empleado, HttpStatus.OK);
     }
 }

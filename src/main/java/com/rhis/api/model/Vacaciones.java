@@ -34,6 +34,10 @@ public class Vacaciones {
     @Column(name = "dias_disponibles")
     private Integer diasDisponibles;
 
+    @Column(name = "descripcion")
+    private String descripcion;
+
+
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 public class PuestoRequestDto {
 
+    private String idPuesto;
     private String nombre;
     private Double salarioMaximo;
     private Double salarioMinimo;

@@ -78,7 +78,7 @@ public class Empleado extends AuditingEntity{
     @Column(name = "salario")
     private BigDecimal salario;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_puesto")
     private Puesto puesto;
 
