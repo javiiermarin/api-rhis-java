@@ -7,8 +7,7 @@ import lombok.Setter;
 @Getter
 public class PermisoTrackingRequestDto {
 
+    private String idPermisoTracking;
     private Boolean estado;
-    private String usuario;
-
 
 }

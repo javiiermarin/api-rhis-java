@@ -35,7 +35,6 @@ public class PermisoService {
      * @param permisoRequestDto
      * @return
      */
-
     public PermisoResponseDto crearPermiso(PermisoRequestDto permisoRequestDto) {
         var empleado = empleadoRepository.findById(permisoRequestDto.getEmpleado());
         var encargadoRrhh = empleadoRepository.findByPuestoIdPuesto("c0b7e4b8-c4bc-463e-8847-3e4dc1fa3ba5");
@@ -43,6 +42,7 @@ public class PermisoService {
 
         var permiso = permisoMapper.toEntity(permisoRequestDto);
         permiso.setEmpleado(empleado.get());
+
         var encargado = empleado.get().getPuesto().getDivision().getEncargado();
         permiso.setTipoPermiso(tipoPermiso.get());
 
@@ -73,5 +73,34 @@ public class PermisoService {
                 .stream()
                 .map(permisoMapper::toDto)
                 .toList();
+    }
+
+    /**
+     *funcion que modifica un permiso
+     *
+     * @param permisoRequestDto
+     * @return
+     */
+    public  PermisoResponseDto modificarPermisos(PermisoRequestDto permisoRequestDto){
+        var permiso = permisoRepository.findById(permisoRequestDto.getIdPermiso())
+                .orElseThrow();
+        var empleado = empleadoRepository.findById(permisoRequestDto.getEmpleado())
+                .orElseThrow();
+        var tipoPermiso = tipoPermisoRepository.findById(permisoRequestDto.getTipoPermiso())
+                .orElseThrow();
+
+        permisoMapper.modificar(permisoRequestDto, permiso);
+        permiso.setTipoPermiso(tipoPermiso);
+        permiso.setEmpleado(empleado);
+
+        for (PermisoTracking tracking : permisoRequestDto.getPermisoTracking()){
+            for (PermisoTracking permisosTracking: permiso.getPermisoTracking()){
+                if (tracking.getIdPermisoTracking().equalsIgnoreCase(permisosTracking.getIdPermisoTracking())) {
+                    permisosTracking.setEstado(tracking.isEstado());
+                }
+            }
+        }
+        return permisoMapper.toDto(permisoRepository.save(permiso));
+
     }
 }

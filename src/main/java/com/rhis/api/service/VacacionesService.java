@@ -8,7 +8,6 @@ import com.rhis.api.repository.EmpleadoRepository;
 import com.rhis.api.repository.VacacionesRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -90,7 +89,6 @@ public class VacacionesService {
                 }
             }
         }
-
         return vacacionesMapper.toDto(vacacionesRepository.save(vacaciones));
     }
 

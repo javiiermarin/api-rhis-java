@@ -21,18 +21,42 @@ public class PermisoController {
         this.permisoService = permisoService;
     }
 
+    /**
+     * Peticion que crea un permiso
+     * @param permisoRequestDto
+     * @return
+     */
     @PostMapping
     public ResponseEntity<PermisoResponseDto> crearPermiso(@RequestBody @Valid PermisoRequestDto permisoRequestDto){
         var permiso = permisoService.crearPermiso(permisoRequestDto);
         return new ResponseEntity<>(permiso, HttpStatus.CREATED);
     }
 
+    /**
+     * Peticion que lista todos los permisos
+     *
+     * @param idEmpleado
+     * @return
+     */
     @GetMapping
     public ResponseEntity<List<PermisoResponseDto>> obtenerPermisosPorEmpleado(
             @RequestParam(value = "idEmpleado") String idEmpleado) {
         var permiso = permisoService.listarPermisosPorEmpleado(idEmpleado);
         return new ResponseEntity<>(permiso, HttpStatus.OK);
+    }
 
+    /**
+     * Peticion que modifica el estado de los permisos
+     *
+     * @param permisoRequestDto
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity<PermisoResponseDto> modificarPermiso(@RequestBody
+                                                                   @Valid PermisoRequestDto permisoRequestDto){
+        var permiso = permisoService.modificarPermisos(permisoRequestDto);
+
+        return new ResponseEntity<>(permiso,HttpStatus.OK);
     }
 
 
