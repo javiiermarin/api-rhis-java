@@ -12,5 +12,4 @@ public interface DivisionRespository extends JpaRepository<Division, String> {
 
     Optional<Division> findByIdDivision(String idDivision);
 
-
 }

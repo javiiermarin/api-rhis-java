@@ -22,4 +22,10 @@ public class PermisoMapper {
     public Permiso toEntity (PermisoRequestDto permisoRequestDto){
         return modelMapper.map(permisoRequestDto, Permiso.class);
     }
+
+    public void modificar(PermisoRequestDto permisoRequestDto, Permiso permiso){
+        permiso.setDescripcion(permisoRequestDto.getDescripcion());
+        permiso.setFechaInicio(permisoRequestDto.getFechaInicio());
+        permiso.setFechaFinal(permisoRequestDto.getFechaFinal());
+    }
 }

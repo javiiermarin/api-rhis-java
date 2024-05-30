@@ -13,7 +13,6 @@ import java.util.List;
 public class PermisoTrackingService {
 
     private final PermisoTrackingRepository permisoTrackingRepository;
-
     private final PermisoTrackingMapper permisoTrackingMapper;
 
     public PermisoTrackingService(PermisoTrackingRepository permisoTrackingRepository, PermisoTrackingMapper permisoTrackingMapper) {
@@ -21,13 +20,13 @@ public class PermisoTrackingService {
         this.permisoTrackingMapper = permisoTrackingMapper;
     }
 
+
     /**
      * Funcion que lista todos los estados dependiendo de un estado
      *
      * @param estado
      * @return
      */
-
     public List<PermisoTrackingResponseDto> obtenerTracking(boolean estado){
 
         return permisoTrackingRepository.findAllByEstado(estado)
@@ -36,6 +35,7 @@ public class PermisoTrackingService {
                 .toList();
     }
 
+
     /**
      * funcion que modifica el estado de un permiso
      *
@@ -43,7 +43,6 @@ public class PermisoTrackingService {
      * @param permisoTrackingRequestDto
      * @return
      */
-
     public PermisoTrackingResponseDto actualizarTracking(String idPermisoTracking,
                                                          PermisoTrackingRequestDto permisoTrackingRequestDto){
         var tracking = permisoTrackingRepository.findById(idPermisoTracking);
