@@ -17,9 +17,8 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table(name = "empleado", schema = "rhis_data")
-public class Empleado extends AuditingEntity{
+public class Empleado extends AuditingEntity {
 
     @Id
     @UuidGenerator

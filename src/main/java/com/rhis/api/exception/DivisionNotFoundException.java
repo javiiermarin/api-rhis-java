@@ -7,6 +7,6 @@ package com.rhis.api.exception;
 public class DivisionNotFoundException extends NotFoundException {
 
     public DivisionNotFoundException() {
-        super("NO HAY DIVISIONES HABILES");
+        super("División no existe");
     }
 }

@@ -16,7 +16,9 @@ public class PuestoMapper {
     }
 
     public PuestoResponseDto toDto(Puesto puesto){
-        return strictModelMapper.map(puesto, PuestoResponseDto.class);
+        var puestoResponse = strictModelMapper.map(puesto, PuestoResponseDto.class);
+        puestoResponse.getDivision().setEncargado(puesto.getDivision().getEncargado().getIdEmpleado());
+        return puestoResponse;
     }
 
     public Puesto toEntity(PuestoRequestDto puestoRequestDto){

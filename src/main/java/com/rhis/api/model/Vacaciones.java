@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = "vacaciones", schema = "rhis_data")
-public class Vacaciones {
+public class Vacaciones extends AuditingEntity {
 
     @Id
     @UuidGenerator
@@ -36,7 +36,6 @@ public class Vacaciones {
 
     @Column(name = "descripcion")
     private String descripcion;
-
 
     @ManyToOne
     @JoinColumn(name = "id_empleado")

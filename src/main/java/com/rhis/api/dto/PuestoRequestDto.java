@@ -11,5 +11,5 @@ public class PuestoRequestDto {
     private String nombre;
     private Double salarioMaximo;
     private Double salarioMinimo;
-    private String division;
+    private String idDivision;
 }

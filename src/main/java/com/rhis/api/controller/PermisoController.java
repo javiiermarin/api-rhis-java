@@ -2,6 +2,8 @@ package com.rhis.api.controller;
 
 import com.rhis.api.dto.PermisoRequestDto;
 import com.rhis.api.dto.PermisoResponseDto;
+import com.rhis.api.exception.EmpleadoNotFoundException;
+import com.rhis.api.exception.UnregisterVacationException;
 import com.rhis.api.service.PermisoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -27,7 +29,7 @@ public class PermisoController {
      * @return
      */
     @PostMapping
-    public ResponseEntity<PermisoResponseDto> crearPermiso(@RequestBody @Valid PermisoRequestDto permisoRequestDto){
+    public ResponseEntity<PermisoResponseDto> crearPermiso(@RequestBody @Valid PermisoRequestDto permisoRequestDto) throws UnregisterVacationException, EmpleadoNotFoundException {
         var permiso = permisoService.crearPermiso(permisoRequestDto);
         return new ResponseEntity<>(permiso, HttpStatus.CREATED);
     }

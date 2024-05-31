@@ -17,7 +17,7 @@ public class DivisionRequestDto {
     @Size(max = 50)
     private String nombre;
 
-    private Boolean isEnabled;
+    private boolean enabled;
 
     @Size(max = 36)
     private String encargado;

@@ -3,6 +3,7 @@ package com.rhis.api.controller;
 import com.rhis.api.dto.DivisionRequestDto;
 import com.rhis.api.dto.DivisionResponseDto;
 import com.rhis.api.exception.DivisionNotFoundException;
+import com.rhis.api.exception.EmpleadoNotFoundException;
 import com.rhis.api.service.DivisionService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class DivisionController {
      * @throws DivisionNotFoundException
      */
     @GetMapping
-    public ResponseEntity<List<DivisionResponseDto>> obtenerDivisiones() throws DivisionNotFoundException{
+    public ResponseEntity<List<DivisionResponseDto>> obtenerDivisiones() {
         var divisionesDto = divisionService.obtenerDivisiones();
         return new ResponseEntity<>(divisionesDto, HttpStatus.OK);
     }
@@ -41,7 +42,7 @@ public class DivisionController {
      * @return
      */
     @PostMapping
-    public ResponseEntity<DivisionResponseDto> crearDivision(@RequestBody @Valid DivisionRequestDto divisionRequestDto){
+    public ResponseEntity<DivisionResponseDto> crearDivision(@RequestBody @Valid DivisionRequestDto divisionRequestDto) throws EmpleadoNotFoundException {
         var division = divisionService.crearDivision(divisionRequestDto);
         return new ResponseEntity<>(division, HttpStatus.OK);
     }
@@ -55,24 +56,10 @@ public class DivisionController {
      */
     @PutMapping
     public ResponseEntity<DivisionResponseDto> actualizarDivision(
-                                                                 @RequestBody
-                                                                 @Valid
-                                                                 DivisionRequestDto divisionRequestDto) throws DivisionNotFoundException {
+            @RequestBody
+            @Valid
+            DivisionRequestDto divisionRequestDto) throws DivisionNotFoundException, EmpleadoNotFoundException {
         var division = divisionService.actualizarDivision(divisionRequestDto);
         return new ResponseEntity<>(division, HttpStatus.OK);
-    }
-
-
-    /**
-     * peticion para eliminar una division
-     *
-     * @param idDivision
-     * @return
-     * @throws DivisionNotFoundException
-     */
-    @DeleteMapping("/{idDivision}")
-    public ResponseEntity<Void> eliminarDivision(@PathVariable  String idDivision) throws DivisionNotFoundException {
-        divisionService.eliminarDivision(idDivision);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

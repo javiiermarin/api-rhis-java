@@ -24,16 +24,16 @@ databaseChangeLog:
                   name: descripcion
                   type: varchar(200)
               - column:
-                  name: create_at
+                  name: created_at
                   type: datetime
               - column:
-                  name: update_at
+                  name: updated_at
                   type: datetime
               - column:
-                  name: create_by
+                  name: created_by
                   type: varchar(36)
               - column:
-                  name: update_by
+                  name: updated_by
                   type: varchar(36)
 
 

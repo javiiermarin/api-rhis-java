@@ -15,24 +15,26 @@ public class DivisionMapper {
         this.modelMapper = modelMapper;
     }
 
-    public DivisionResponseDto toDto(Division division){
+    public DivisionResponseDto toDto(Division division) {
 
         var divisionResponseDto = modelMapper.map(division, DivisionResponseDto.class);
-        divisionResponseDto.setEncargado(division.getEncargado().getIdEmpleado());
+
+        if (division.getEncargado() != null) {
+            divisionResponseDto.setEncargado(division.getEncargado().getIdEmpleado());
+        }
         return divisionResponseDto;
     }
 
-    public Division toEntity(DivisionRequestDto divisionRequestDto){
+    public Division toEntity(DivisionRequestDto divisionRequestDto) {
         return modelMapper.map(divisionRequestDto, Division.class);
     }
 
-    public Division toUpdateEntity(DivisionRequestDto divisionRequestDto, Division divisionBd){
+    public Division toUpdateEntity(DivisionRequestDto divisionRequestDto, Division divisionBd) {
         divisionBd.setNombre(divisionRequestDto.getNombre());
-        divisionBd.setIsEnabled(divisionRequestDto.getIsEnabled());
+        divisionBd.setEnabled(divisionRequestDto.isEnabled());
 
         return divisionBd;
     }
-
 
 
 }
