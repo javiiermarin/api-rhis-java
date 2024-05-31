@@ -35,6 +35,18 @@ databaseChangeLog:
               - column:
                   name: id_vacaciones_tracking
                   type: varchar(36)
+              - column:
+                  name: created_at
+                  type: datetime
+              - column:
+                  name: created_by
+                  type: varchar(36)
+              - column:
+                  name: updated_at
+                  type: datetime
+              - column:
+                  name: updated_by
+                  type: varchar(36)
         - addForeignKeyConstraint:
             baseTableName: vacaciones
             baseColumnNames: id_empleado

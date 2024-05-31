@@ -11,6 +11,7 @@ import com.rhis.api.repository.PuestoRespository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
 
 @Service
@@ -30,11 +31,12 @@ public class EmpleadoService {
 
     /**
      * Funcion que crea un empleado
+     *
      * @param empleadoRequestDto
      * @return el empleado reado
      * @throws PuestoNotFoundException
      */
-    public EmpleadoResponseDto crearEmpleado(EmpleadoRequestDto empleadoRequestDto)throws PuestoNotFoundException {
+    public EmpleadoResponseDto crearEmpleado(EmpleadoRequestDto empleadoRequestDto) throws PuestoNotFoundException {
         var puesto = puestoRespository.findById(empleadoRequestDto.getPuesto())
                 .orElseThrow(PuestoNotFoundException::new);
 
@@ -47,11 +49,12 @@ public class EmpleadoService {
 
     /**
      * Funcion que obtiene todos los empleados de un puesto especifico || si no especificamos el puesto nos lista a todos los empleados
+     *
      * @param idPuesto
      * @return empleados
      */
-    public List<EmpleadoResponseDto> obtenerEmpleados(String idPuesto){
-        if (idPuesto  != null){
+    public List<EmpleadoResponseDto> obtenerEmpleados(String idPuesto) {
+        if (idPuesto != null) {
             return empleadoRepository.findAllByPuestoIdPuestoAndHabilitadoTrue(idPuesto)
                     .stream()
                     .map(empleadoMapper::toDto)
@@ -65,12 +68,20 @@ public class EmpleadoService {
 
     }
 
+    public EmpleadoResponseDto getOneEmpleado(String idEmpleado) {
+        var empleado = empleadoRepository.findById(idEmpleado)
+                .orElseThrow(EmptyStackException::new);
+
+        return empleadoMapper.toDto(empleado);
+    }
+
     /**
      * Funcion que modifica un empleado
+     *
      * @param empleadoRequestDto
      * @return
      */
-    public EmpleadoResponseDto editarEmpleado(EmpleadoRequestDto empleadoRequestDto){
+    public EmpleadoResponseDto editarEmpleado(EmpleadoRequestDto empleadoRequestDto) {
         var empleado = empleadoRepository.findById(empleadoRequestDto.getIdEmpleado()).orElseThrow();//Recueramos el empleado
         empleadoMapper.modificar(empleadoRequestDto, empleado);//seteamos los nuevos valores a ese empleado desde la clase mapper
 
@@ -80,7 +91,7 @@ public class EmpleadoService {
         for (EmpleadoReferenciaRequestDto referenciaRequest : empleadoRequestDto.getEmpleadoReferencia()) {
             EmpleadoReferencia referenciaExistente = empleado.getEmpleadoReferencia().stream()
                     .filter(ref ->
-                        ref.getIdEmpleadoReferencia().equalsIgnoreCase(referenciaRequest.getIdEmpleadoReferencia()))
+                            ref.getIdEmpleadoReferencia().equalsIgnoreCase(referenciaRequest.getIdEmpleadoReferencia()))
 
                     .findFirst()
                     .orElse(null);

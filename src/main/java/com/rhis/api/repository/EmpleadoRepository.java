@@ -5,11 +5,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EmpleadoRepository extends JpaRepository<Empleado, String> {
 
     List<Empleado> findAllByPuestoIdPuestoAndHabilitadoTrue(String idPuesto);
-    Empleado findByPuestoIdPuesto(String idPuesto);
+
+    Optional<Empleado> findByPuestoIdPuesto(String idPuesto);
 
     List<Empleado> findAllByPuestoDivisionIdDivisionAndHabilitadoTrue(String idDivision);
 

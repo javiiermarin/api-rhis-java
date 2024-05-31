@@ -15,7 +15,6 @@ import java.util.List;
 @Getter
 public class PermisoRequestDto {
 
-
     @Size(max = 36)
     private String idPermiso;
 
@@ -30,9 +29,6 @@ public class PermisoRequestDto {
     @NotNull
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaFinal;
-
-    @NotNull
-    private String empleado;
 
     @NotNull
     private String tipoPermiso;

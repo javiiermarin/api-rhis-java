@@ -33,14 +33,22 @@ public class EmpleadoController {
     @GetMapping
     public ResponseEntity<List<EmpleadoResponseDto>> obtenerEmpleados(
             @RequestParam(value = "idPuesto", required = false) String idPuesto
-    )throws PuestoNotFoundException{
+    ) {
         var empleadosDto = empleadoService.obtenerEmpleados(idPuesto);
+        return new ResponseEntity<>(empleadosDto, HttpStatus.OK);
+    }
+
+    @GetMapping("{idEmpleado}")
+    public ResponseEntity<EmpleadoResponseDto> getOneEmpleado(
+            @PathVariable(value = "idEmpleado") String idEmpleado
+    ) {
+        var empleadosDto = empleadoService.getOneEmpleado(idEmpleado);
         return new ResponseEntity<>(empleadosDto, HttpStatus.OK);
     }
 
     @PutMapping
     public ResponseEntity<EmpleadoResponseDto> modificarEmpleado(@RequestBody
-                                                                 @Valid EmpleadoRequestDto empleadoRequestDto){
+                                                                 @Valid EmpleadoRequestDto empleadoRequestDto) {
         var empleado = empleadoService.editarEmpleado(empleadoRequestDto);
         return new ResponseEntity<>(empleado, HttpStatus.OK);
     }

@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface DivisionRespository extends JpaRepository<Division, String> {
 
-    List<Division> findAllByIsEnabledTrue();
+    List<Division> findAllByOrderByCreatedAtAsc();
 
     Optional<Division> findByIdDivision(String idDivision);
 

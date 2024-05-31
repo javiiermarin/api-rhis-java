@@ -30,7 +30,7 @@ public class PuestoController {
      * @return
      */
     @PostMapping
-    public ResponseEntity<PuestoResponseDto> crearPuesto(@RequestBody @Valid PuestoRequestDto puestoRequestDto){
+    public ResponseEntity<PuestoResponseDto> crearPuesto(@RequestBody @Valid PuestoRequestDto puestoRequestDto) throws DivisionNotFoundException {
         var puesto = puestoService.crearPuesto(puestoRequestDto);
         return new ResponseEntity<>(puesto, HttpStatus.OK);
     }
@@ -45,7 +45,7 @@ public class PuestoController {
     @GetMapping
     public ResponseEntity<List<PuestoResponseDto>> obtenerPuestosPorDivision(
             @RequestParam(value = "idDivision", required = false) String idDivision
-    )throws PuestoNotFoundException {
+    ) {
         var puestoDto = puestoService.obtenerPuestosPorDivision(idDivision);
         return new ResponseEntity<>(puestoDto, HttpStatus.OK);
     }
@@ -60,14 +60,14 @@ public class PuestoController {
     @PutMapping
     public ResponseEntity<PuestoResponseDto> modificarPuesto(
             @RequestBody @Valid PuestoRequestDto puestoRequestDto
-    )throws PuestoNotFoundException {
+    ) throws PuestoNotFoundException, DivisionNotFoundException {
         var puesto = puestoService.modificarPuesto(puestoRequestDto);
 
         return new ResponseEntity<>(puesto, HttpStatus.OK);
     }
 
     @DeleteMapping("/{idPuesto}")
-    public ResponseEntity<Void> eliminarPuesto(@PathVariable String idPuesto){
+    public ResponseEntity<Void> eliminarPuesto(@PathVariable String idPuesto) {
         puestoService.eliminarPuesto(idPuesto);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

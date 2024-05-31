@@ -3,6 +3,7 @@ package com.rhis.api.service;
 import com.rhis.api.dto.DivisionRequestDto;
 import com.rhis.api.dto.DivisionResponseDto;
 import com.rhis.api.exception.DivisionNotFoundException;
+import com.rhis.api.exception.EmpleadoNotFoundException;
 import com.rhis.api.mapper.DivisionMapper;
 import com.rhis.api.model.Division;
 import com.rhis.api.repository.DivisionRespository;
@@ -30,35 +31,37 @@ public class DivisionService {
 
     /**
      * Funcion que obtiene todas las divisiones (departamentos dentro de la empresa) disponibles
+     *
      * @return listado de divisiones
      */
-    public List<DivisionResponseDto> obtenerDivisiones()throws DivisionNotFoundException {
-        var divisionResponseDto = divisionRespository.findAllByIsEnabledTrue()
+    public List<DivisionResponseDto> obtenerDivisiones() {
+        return divisionRespository.findAllByOrderByCreatedAtAsc()
                 .stream()
                 .map(divisionMapper::toDto)
                 .toList();
-        return divisionResponseDto;
     }
 
     /**
      * metodo para crear una division
+     *
      * @param divisionRequestDto
      * @return division creada
      */
 
-    public DivisionResponseDto crearDivision(DivisionRequestDto divisionRequestDto){
-        System.out.println(divisionRequestDto);
-        var encargado = empleadoRepository.findById(divisionRequestDto.getEncargado());
+    public DivisionResponseDto crearDivision(DivisionRequestDto divisionRequestDto) throws EmpleadoNotFoundException {
+        var encargado = empleadoRepository.findById(divisionRequestDto.getEncargado())
+                .orElseThrow(() -> new EmpleadoNotFoundException("El encargado no existe"));
 
         var division = divisionMapper.toEntity(divisionRequestDto);
-        division.setIsEnabled(true);
-        division.setEncargado(encargado.get());
+        division.setEnabled(true);
+        division.setEncargado(encargado);
 
         return divisionMapper.toDto(divisionRespository.save(division));
     }
 
     /**
      * metodo que nos lista todas las divisiones registradas
+     *
      * @param idDivision
      * @return
      */
@@ -69,29 +72,21 @@ public class DivisionService {
 
     /**
      * metodo para modificar los datos de una division
+     *
      * @param divisionRequestDto
      * @return
      * @throws DivisionNotFoundException
      */
-    public DivisionResponseDto actualizarDivision(DivisionRequestDto divisionRequestDto) throws DivisionNotFoundException {
+    public DivisionResponseDto actualizarDivision(DivisionRequestDto divisionRequestDto) throws DivisionNotFoundException, EmpleadoNotFoundException {
+        var division = obtenerDivision(divisionRequestDto.getIdDivision())
+                .orElseThrow(DivisionNotFoundException::new);
+        var encargado = empleadoRepository.findById(divisionRequestDto.getEncargado())
+                .orElseThrow(() -> new EmpleadoNotFoundException("El encargado no existe"));
 
-        var division = obtenerDivision(divisionRequestDto.getIdDivision()).orElseThrow(DivisionNotFoundException::new);
-        var encargado = empleadoRepository.findById(divisionRequestDto.getEncargado());
         division.setNombre(divisionRequestDto.getNombre());
-        division.setIsEnabled(divisionRequestDto.getIsEnabled());
-        division.setEncargado(encargado.get());
+        division.setEnabled(divisionRequestDto.isEnabled());
+        division.setEncargado(encargado);
 
         return divisionMapper.toDto(divisionRespository.save(division));
     }
-
-    /**
-     * metodo para eliminar una division
-     * @param idDivision
-     * @throws DivisionNotFoundException
-     */
-    public void eliminarDivision(String idDivision) throws DivisionNotFoundException {
-         divisionRespository.deleteById(idDivision);
-    }
-
-
 }
