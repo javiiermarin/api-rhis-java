@@ -15,13 +15,16 @@ public class PuestoMapper {
         this.strictModelMapper = strictModelMapper;
     }
 
-    public PuestoResponseDto toDto(Puesto puesto){
+    public PuestoResponseDto toDto(Puesto puesto) {
         var puestoResponse = strictModelMapper.map(puesto, PuestoResponseDto.class);
-        puestoResponse.getDivision().setEncargado(puesto.getDivision().getEncargado().getIdEmpleado());
+
+        if (puesto.getDivision().getEncargado() != null) {
+            puestoResponse.getDivision().setEncargado(puesto.getDivision().getEncargado().getIdEmpleado());
+        }
         return puestoResponse;
     }
 
-    public Puesto toEntity(PuestoRequestDto puestoRequestDto){
+    public Puesto toEntity(PuestoRequestDto puestoRequestDto) {
         return strictModelMapper.map(puestoRequestDto, Puesto.class);
     }
 }

@@ -5,11 +5,11 @@ databaseChangeLog:
 
       changes:
         - createTable:
-            tableName: nivel_academico
+            tableName: empleado_nivel_academico
             schemaName: rhis_data
             columns:
               - column:
-                  name: id_nivel_academico
+                  name: id_empleado_nivel_academico
                   type: varchar(36)
                   constraints:
                     primaryKey: true
@@ -24,7 +24,7 @@ databaseChangeLog:
                   name: id_empleado
                   type: varchar(36)
         - addForeignKeyConstraint:
-            baseTableName: nivel_academico
+            baseTableName: empleado_nivel_academico
             baseColumnNames: id_empleado
             constraintName: fk_nivel_academico_empleado
             referencedTableName: empleado

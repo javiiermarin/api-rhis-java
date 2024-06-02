@@ -23,12 +23,14 @@ public class EmpleadoResponseDto {
     private Genero genero;
     private String correo;
     private String nit;
+    private String username;
     private String nacionalidad;
     private String nivelIngles;
     private LocalDateTime fechaRegistro;
     private LocalDate fechaNacimiento;
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
+    private String role;
     private EstadoCivil estadoCivil;
     private BigDecimal salario;
     private PuestoResponseDto puesto;

@@ -8,13 +8,13 @@ import org.hibernate.annotations.UuidGenerator;
 @Setter
 @Getter
 @Entity
-@Table(name = "nivel_academico", schema = "rhis_data")
-public class NivelAcademico {
+@Table(name = "empleado_nivel_academico", schema = "rhis_data")
+public class EmpleadoNivelAcademico {
 
     @Id
     @UuidGenerator
-    @Column(name = "id_nivel_academico")
-    private String idNivelAcademico;
+    @Column(name = "id_empleado_nivel_academico")
+    private String idEmpleadoNivelAcademico;
 
     @Column(name = "nivel_academico")
     private String nivelAcademico;

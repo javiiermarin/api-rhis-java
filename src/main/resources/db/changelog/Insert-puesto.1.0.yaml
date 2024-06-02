@@ -16,10 +16,10 @@ databaseChangeLog:
                   value: Desarrollador Junior
               - column:
                   name: salario_maximo
-                  value: 5000
+                  value: 7000
               - column:
                   name: salario_minimo
-                  value: 7000
+                  value: 5000
               - column:
                   name: is_enabled
                   value: true
@@ -63,10 +63,10 @@ databaseChangeLog:
                   value: Encargada de nomina
               - column:
                   name: salario_maximo
-                  value: 4500
+                  value: 6700
               - column:
                   name: salario_minimo
-                  value: 6700
+                  value: 4500
               - column:
                   name: is_enabled
                   value: true
@@ -86,13 +86,36 @@ databaseChangeLog:
                   value: Jefe departamento IT
               - column:
                   name: salario_maximo
-                  value: 16000
+                  value: 22000
               - column:
                   name: salario_minimo
-                  value: 22000
+                  value: 16000
               - column:
                   name: is_enabled
                   value: true
               - column:
                   name: id_division
                   value: ee25a61b-67c9-449b-9ff6-879e38bdc919
+
+        - insert:
+            tableName: puesto
+            schemaName: rhis_data
+            columns:
+              - column:
+                  name: id_puesto
+                  value: e1bb8734-3041-43e2-80b9-983e1cc6f731
+              - column:
+                  name: nombre
+                  value: Jefe departamento RRHH
+              - column:
+                  name: salario_maximo
+                  value: 22000
+              - column:
+                  name: salario_minimo
+                  value: 16000
+              - column:
+                  name: is_enabled
+                  value: true
+              - column:
+                  name: id_division
+                  value: b5691c3c-ecce-47af-8e9c-dd7a946bdbdc

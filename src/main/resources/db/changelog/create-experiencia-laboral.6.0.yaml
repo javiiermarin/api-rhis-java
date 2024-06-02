@@ -5,11 +5,11 @@ databaseChangeLog:
 
       changes:
         - createTable:
-            tableName: experiencia_laboral
+            tableName: empleado_experiencia_laboral
             schemaName: rhis_data
             columns:
               - column:
-                  name: id_experiencia_laboral
+                  name: id_empleado_experiencia_laboral
                   type: varchar(36)
                   constraints:
                     primaryKey: true
@@ -33,7 +33,7 @@ databaseChangeLog:
                   name: id_empleado
                   type: varchar(36)
         - addForeignKeyConstraint:
-            baseTableName: experiencia_laboral
+            baseTableName: empleado_experiencia_laboral
             baseColumnNames: id_empleado
             constraintName: fk_experiencia_empleado
             referencedTableName: empleado

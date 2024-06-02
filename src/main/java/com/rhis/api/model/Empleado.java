@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -21,7 +20,6 @@ import java.util.List;
 public class Empleado extends AuditingEntity {
 
     @Id
-    @UuidGenerator
     @Column(name = "id_empleado")
     private String idEmpleado;
 
@@ -48,6 +46,9 @@ public class Empleado extends AuditingEntity {
 
     @Column(name = "nit")
     private String nit;
+
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "nacionalidad")
     private String nacionalidad;
@@ -77,6 +78,9 @@ public class Empleado extends AuditingEntity {
     @Column(name = "salario")
     private BigDecimal salario;
 
+    @Column(name = "role")
+    private String role;
+
     @OneToOne
     @JoinColumn(name = "id_puesto")
     private Puesto puesto;
@@ -84,10 +88,10 @@ public class Empleado extends AuditingEntity {
     @OneToMany(targetEntity = EmpleadoReferencia.class, mappedBy = "empleado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<EmpleadoReferencia> empleadoReferencia;
 
-    @OneToMany(targetEntity = ExperienciaLaboral.class, mappedBy = "empleado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ExperienciaLaboral> experienciaLaboral;
+    @OneToMany(targetEntity = EmpleadoExperienciaLaboral.class, mappedBy = "empleado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<EmpleadoExperienciaLaboral> experienciaLaboral;
 
-    @OneToMany(targetEntity = NivelAcademico.class, mappedBy = "empleado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<NivelAcademico> nivelAcademico;
+    @OneToMany(targetEntity = EmpleadoNivelAcademico.class, mappedBy = "empleado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<EmpleadoNivelAcademico> nivelAcademico;
 
 }
