@@ -10,5 +10,6 @@ public class EmpleadoPermisoResponseDto {
     private String idEmpleado;
     private String nombres;
     private String apellidos;
+    private String role;
     private PuestoPermisoResponseDto puesto;
 }

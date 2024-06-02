@@ -53,6 +53,9 @@ public class EmpleadoRequestDto {
     @Size(max = 20)
     private String nit;
 
+    @NotNull
+    private String role;
+
     @Size(max = 50)
     private String nacionalidad;
 

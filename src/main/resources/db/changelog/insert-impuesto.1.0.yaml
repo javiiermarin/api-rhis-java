@@ -20,4 +20,3 @@ databaseChangeLog:
              - column:
                 name: descripcion
                 value: Impuesto de ley
-

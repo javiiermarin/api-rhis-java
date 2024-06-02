@@ -1,5 +1,7 @@
 package com.rhis.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +19,7 @@ public class VacacionesResponseDto {
     private LocalDate fechaFinal;
     private String descripcion;
     private EmpleadoPermisoResponseDto empleado;
+    @JsonManagedReference
     private List<VacacionesTrackingResponseDto> vacacionesTracking;
 
 }

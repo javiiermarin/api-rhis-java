@@ -57,6 +57,12 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(ConflictException.class)
+    public ResponseEntity<ErrorResponse> handleConflictException(ConflictException conflictException, WebRequest req) {
+        ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(), HttpStatus.CONFLICT.value(), conflictException.getMessage(), req.getDescription(false));
+        return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
+    }
+
 
     @ExceptionHandler(UnprocessableEntityException.class)
     public ResponseEntity<ErrorResponse> handleUnprocessableEntityException(UnprocessableEntityException unprocessableEntityException, WebRequest req) {

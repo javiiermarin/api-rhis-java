@@ -3,6 +3,7 @@ package com.rhis.api.controller;
 import com.rhis.api.dto.EmpleadoRequestDto;
 import com.rhis.api.dto.EmpleadoResponseDto;
 import com.rhis.api.exception.PuestoNotFoundException;
+import com.rhis.api.exception.UserConflictException;
 import com.rhis.api.service.EmpleadoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -24,9 +25,8 @@ public class EmpleadoController {
 
     @PostMapping
     public ResponseEntity<EmpleadoResponseDto> crearEmpleado(@RequestBody @Valid EmpleadoRequestDto empleadoRequestDto)
-            throws PuestoNotFoundException {
+            throws PuestoNotFoundException, UserConflictException {
         var empleado = empleadoService.crearEmpleado(empleadoRequestDto);
-
         return new ResponseEntity<>(empleado, HttpStatus.CREATED);
     }
 

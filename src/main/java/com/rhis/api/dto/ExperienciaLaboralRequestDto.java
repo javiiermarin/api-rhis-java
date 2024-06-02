@@ -12,6 +12,8 @@ import lombok.Setter;
 @Getter
 public class ExperienciaLaboralRequestDto {
 
+    private String idExperienciaLaboral;
+
     @NotNull
     @Size(max = 50)
     private String nombreEmpresa;

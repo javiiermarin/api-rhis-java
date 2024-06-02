@@ -26,8 +26,7 @@ public class ImpuestosService {
      * @param impuestoRequestDto
      * @return
      */
-    public ImpuestosResponseDto crearImpuesto(ImpuestoRequestDto impuestoRequestDto){
-        System.out.println(impuestoRequestDto);
+    public ImpuestosResponseDto crearImpuesto(ImpuestoRequestDto impuestoRequestDto) {
         var impuesto = impuestosMapper.toEntity(impuestoRequestDto);
         return impuestosMapper.toDto(impuestoRepository.save(impuesto));
     }
@@ -35,9 +34,10 @@ public class ImpuestosService {
 
     /**
      * Metodo que retorna la lista de impuestos
+     *
      * @return
      */
-    public List<ImpuestosResponseDto> listarImpuestos(){
+    public List<ImpuestosResponseDto> listarImpuestos() {
         return impuestoRepository.findAll()
                 .stream()
                 .map(impuestosMapper::toDto)
@@ -50,7 +50,7 @@ public class ImpuestosService {
      * @param impuestoRequestDto
      * @return
      */
-    public ImpuestosResponseDto modificarImpuesto(ImpuestoRequestDto impuestoRequestDto){
+    public ImpuestosResponseDto modificarImpuesto(ImpuestoRequestDto impuestoRequestDto) {
         var impuesto = impuestoRepository.findById(impuestoRequestDto.getIdImpuesto()).orElseThrow();
         impuesto.setNombre(impuestoRequestDto.getNombre());
         impuesto.setPorcentaje(impuestoRequestDto.getPorcentaje());
@@ -58,9 +58,9 @@ public class ImpuestosService {
         return impuestosMapper.toDto(impuestoRepository.save(impuesto));
     }
 
-    public void eliminarImpuesto(String idImpuesto){
+    public void eliminarImpuesto(String idImpuesto) {
         var impuesto = impuestoRepository.findById(idImpuesto);
-        if (impuesto != null){
+        if (impuesto != null) {
             impuestoRepository.deleteById(idImpuesto);
         }
     }
