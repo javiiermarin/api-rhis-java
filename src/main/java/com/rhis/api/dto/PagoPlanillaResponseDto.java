@@ -1,21 +1,20 @@
 package com.rhis.api.dto;
 
-import com.rhis.api.model.Empleado;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Setter
 @Getter
 public class PagoPlanillaResponseDto {
 
-
+    private String idPagoPlanilla;
     private Double salario;
     private Double bonificacionLey;
     private Double sueldoBase;
-    private Double sueldoNeto;
-    private LocalDateTime fechaInicio;
-    private LocalDateTime fechaFinal;
-    private Empleado empleado;
+    private Double salarioNeto;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFinal;
+    private EmpleadoPermisoResponseDto empleado;
 }

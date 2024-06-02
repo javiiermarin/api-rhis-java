@@ -15,5 +15,4 @@ public class PagoPlanillaRequestDto {
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaFinal;
-
 }

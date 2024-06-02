@@ -12,6 +12,7 @@ import com.rhis.api.repository.PagoPlanillaRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class PagoPlanillaService {
@@ -28,9 +29,13 @@ public class PagoPlanillaService {
         this.impuestoRepository = impuestoRepository;
     }
 
-
+    /**
+     * Funcion que genera una planilla de un rango de fechas de todos los empleados
+     *
+     * @param pagoPlanillaRequestDto
+     * @return
+     */
     public PagoPlanillaResponseDto generarPlanilla(PagoPlanillaRequestDto pagoPlanillaRequestDto) {
-
         var empleados = empleadoRepository.findAll();
         var impuestos = impuestoRepository.findAll();
 
@@ -47,15 +52,21 @@ public class PagoPlanillaService {
                 var impuest = sal.multiply(impuesto.getPorcentaje());
                 var salarioNeto = sal.subtract(impuest);
                 pagoPlanilla.setSalarioNeto(salarioNeto);
-
             }
-
             pagoPlanillaRepository.save(pagoPlanilla);
         }
-
         return null;
 
     }
 
-
+    /**
+     * Funcion que lista las planillas de todos los usuarios
+     * @return
+     */
+    public List<PagoPlanillaResponseDto> obtenerPlanillas() {
+        return pagoPlanillaRepository.findAll()
+                .stream()
+                .map(pagoPlanillaMapper::toDto)
+                .toList();
+    }
 }

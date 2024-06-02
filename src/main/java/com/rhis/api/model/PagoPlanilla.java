@@ -38,5 +38,4 @@ public class PagoPlanilla {
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
-
 }
