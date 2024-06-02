@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rhis.api.model.VacacionesTracking;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Getter
 public class VacacionesRequestDto {
 
-    @Column(name = "id_vacaciones")
+    @Size(max = 36)
     private String idVacaciones;
 
     @NotNull

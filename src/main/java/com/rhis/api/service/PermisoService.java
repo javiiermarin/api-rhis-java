@@ -53,7 +53,6 @@ public class PermisoService {
         var encargado = empleado.getPuesto().getDivision().getEncargado();
         permiso.setTipoPermiso(tipoPermiso.get());
 
-
         PermisoTracking permisoTracking1 = new PermisoTracking();
         permisoTracking1.setPermiso(permiso);
         permisoTracking1.setEmpleado(encargado);
@@ -105,6 +104,5 @@ public class PermisoService {
             }
         }
         return permisoMapper.toDto(permisoRepository.save(permiso));
-
     }
 }
